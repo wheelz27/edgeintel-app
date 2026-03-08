@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-07T08:00:15.605006",
+  "updated": "2026-03-07T19:10:32.323130",
   "date": "March 07, 2026",
   "daily_code": "EDGE0307",
   "discord_invite": "",
@@ -9,49 +9,12 @@
     {
       "id": 1,
       "sport": "NBA",
-      "game": "Brooklyn Nets @ Detroit Pistons",
-      "time": "3/7 - 6:00 PM EST",
-      "confidence": 93,
-      "best_bet": {
-        "pick": "Over 215.5",
-        "odds": "-108",
-        "book": "FanDuel"
-      },
-      "best_prop": {
-        "pick": "No prop identified",
-        "odds": "N/A",
-        "book": "N/A"
-      },
-      "best_parlay": {
-        "legs": [
-          "Over 215.5"
-        ],
-        "odds": "+200",
-        "correlation": "Single-game parlay based on model direction"
-      },
-      "model_vs_market": {
-        "model_spread": -19.7,
-        "market_spread": 215.5,
-        "model_total": 223.5,
-        "market_total": 215.5,
-        "edge": 8.0,
-        "edge_signed": 8.0,
-        "home_proj": 117.4,
-        "away_proj": 106.1
-      },
-      "why": "Model projects 117 + 106 = 223.5 total. Market total: 215.5. Edge: 8.0 points toward Over. Detroit Pistons offense rating (117.4) is elite. Brooklyn Nets defense is exploitable (def rating 117.3).",
-      "risk": "Detroit Pistons may be due for regression (45-16).",
-      "execution": "Play Over 215.5 up to 216.5. Standard sizing."
-    },
-    {
-      "id": 2,
-      "sport": "NBA",
       "game": "Golden State Warriors @ Oklahoma City Thunder",
-      "time": "3/7 - 8:30 PM EST",
-      "confidence": 87,
+      "time": "5:48 - 3rd",
+      "confidence": 72,
       "best_bet": {
-        "pick": "Over 219.5",
-        "odds": "-110",
+        "pick": "Under 229.5",
+        "odds": "-130",
         "book": "FanDuel"
       },
       "best_prop": {
@@ -61,252 +24,34 @@
       },
       "best_parlay": {
         "legs": [
-          "Over 219.5"
+          "Under 229.5"
         ],
         "odds": "+200",
         "correlation": "Single-game parlay based on model direction"
       },
       "model_vs_market": {
         "model_spread": -12.8,
-        "market_spread": 219.5,
+        "market_spread": 229.5,
         "model_total": 226.4,
-        "market_total": 219.5,
-        "edge": 6.9,
-        "edge_signed": 6.9,
+        "market_total": 229.5,
+        "edge": 3.1,
+        "edge_signed": -3.1,
         "home_proj": 117.2,
         "away_proj": 109.2
       },
-      "why": "Model projects 117 + 109 = 226.4 total. Market total: 219.5. Edge: 6.9 points toward Over. Oklahoma City Thunder offense rating (118.1) is elite.",
+      "why": "Model projects 117 + 109 = 226.4 total. Market total: 229.5. Edge: 3.1 points toward Under. Oklahoma City Thunder defense is stout (def rating 104.8).",
       "risk": "Oklahoma City Thunder may be due for regression (49-15).",
-      "execution": "Play Over 219.5 up to 220.5. Standard sizing."
+      "execution": "Play Under 229.5 up to 228.5. Standard sizing."
     },
     {
-      "id": 3,
-      "sport": "NBA",
-      "game": "Orlando Magic @ Minnesota Timberwolves",
-      "time": "3/7 - 3:00 PM EST",
-      "confidence": 83,
-      "best_bet": {
-        "pick": "Over 224.5",
-        "odds": "-110",
-        "book": "FanDuel"
-      },
-      "best_prop": {
-        "pick": "No prop identified",
-        "odds": "N/A",
-        "book": "N/A"
-      },
-      "best_parlay": {
-        "legs": [
-          "Over 224.5"
-        ],
-        "odds": "+200",
-        "correlation": "Single-game parlay based on model direction"
-      },
-      "model_vs_market": {
-        "model_spread": -7.1,
-        "market_spread": 224.5,
-        "model_total": 229.8,
-        "market_total": 224.5,
-        "edge": 5.3,
-        "edge_signed": 5.3,
-        "home_proj": 117.5,
-        "away_proj": 112.3
-      },
-      "why": "Model projects 118 + 112 = 229.8 total. Market total: 224.5. Edge: 5.3 points toward Over. Minnesota Timberwolves offense rating (117.7) is elite. Orlando Magic defense is exploitable (def rating 112.1).",
-      "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play Over 224.5 up to 225.5. Standard sizing."
-    },
-    {
-      "id": 4,
-      "sport": "NBA",
-      "game": "Philadelphia 76ers @ Atlanta Hawks",
-      "time": "3/7 - 6:00 PM EST",
-      "confidence": 72,
-      "best_bet": {
-        "pick": "Atlanta Hawks -7.0",
-        "odds": "-110",
-        "book": "FanDuel"
-      },
-      "best_prop": {
-        "pick": "No prop identified",
-        "odds": "N/A",
-        "book": "N/A"
-      },
-      "best_parlay": {
-        "legs": [
-          "Atlanta Hawks -7.0"
-        ],
-        "odds": "+200",
-        "correlation": "Single-game parlay based on model direction"
-      },
-      "model_vs_market": {
-        "model_spread": -3.5,
-        "market_spread": -7.0,
-        "model_total": 231.5,
-        "edge": 3.5,
-        "edge_signed": 3.5,
-        "home_proj": 117.4,
-        "away_proj": 114.1
-      },
-      "why": "Model projects Atlanta Hawks 117 - Philadelphia 76ers 114. Model spread: -3.5 vs market -7.0 = 3.5pt edge. Atlanta Hawks weighted net rating (+2.6) significantly outperforms Philadelphia 76ers (+2.3). Atlanta Hawks is 32-31 on the season.",
-      "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play at -7.0 or better. Kill if line moves past -6.0. Size: 1 unit."
-    },
-    {
-      "id": 5,
-      "sport": "NBA",
-      "game": "Utah Jazz @ Milwaukee Bucks",
-      "time": "3/7 - 8:00 PM EST",
-      "confidence": 72,
-      "best_bet": {
-        "pick": "Milwaukee Bucks -10.0",
-        "odds": "-108",
-        "book": "FanDuel"
-      },
-      "best_prop": {
-        "pick": "No prop identified",
-        "odds": "N/A",
-        "book": "N/A"
-      },
-      "best_parlay": {
-        "legs": [
-          "Milwaukee Bucks -10.0"
-        ],
-        "odds": "+200",
-        "correlation": "Single-game parlay based on model direction"
-      },
-      "model_vs_market": {
-        "model_spread": -6.1,
-        "market_spread": -10.0,
-        "model_total": 233.2,
-        "edge": 3.9,
-        "edge_signed": 3.9,
-        "home_proj": 118.9,
-        "away_proj": 114.3
-      },
-      "why": "Model projects Milwaukee Bucks 119 - Utah Jazz 114. Model spread: -6.1 vs market -10.0 = 3.9pt edge. Milwaukee Bucks weighted net rating (-1.9) significantly outperforms Utah Jazz (-4.7). Milwaukee Bucks is 26-35 on the season.",
-      "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play at -10.0 or better. Kill if line moves past -9.0. Size: 1 unit."
-    },
-    {
-      "id": 6,
-      "sport": "NBA",
-      "game": "Philadelphia 76ers @ Atlanta Hawks",
-      "time": "3/7 - 6:00 PM EST",
-      "confidence": 65,
-      "best_bet": {
-        "pick": "Under 233.5",
-        "odds": "-110",
-        "book": "FanDuel"
-      },
-      "best_prop": {
-        "pick": "No prop identified",
-        "odds": "N/A",
-        "book": "N/A"
-      },
-      "best_parlay": {
-        "legs": [
-          "Under 233.5"
-        ],
-        "odds": "+200",
-        "correlation": "Single-game parlay based on model direction"
-      },
-      "model_vs_market": {
-        "model_spread": -3.5,
-        "market_spread": 233.5,
-        "model_total": 231.5,
-        "market_total": 233.5,
-        "edge": 2.0,
-        "edge_signed": -2.0,
-        "home_proj": 117.4,
-        "away_proj": 114.1
-      },
-      "why": "Model projects 117 + 114 = 231.5 total. Market total: 233.5. Edge: 2.0 points toward Under.",
-      "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play Under 233.5 up to 232.5. Standard sizing."
-    },
-    {
-      "id": 7,
+      "id": 2,
       "sport": "NHL",
-      "game": "Philadelphia Flyers @ Pittsburgh Penguins",
-      "time": "2026-03-07T22:30:00Z",
-      "confidence": 65,
-      "best_bet": {
-        "pick": "Philadelphia Flyers -1.5",
-        "odds": "-225",
-        "book": "FanDuel"
-      },
-      "best_prop": {
-        "pick": "No prop identified",
-        "odds": "N/A",
-        "book": "N/A"
-      },
-      "best_parlay": {
-        "legs": [
-          "Philadelphia Flyers -1.5"
-        ],
-        "odds": "+200",
-        "correlation": "Single-game parlay based on model direction"
-      },
-      "model_vs_market": {
-        "model_spread": -0.8,
-        "market_spread": 1.5,
-        "model_total": 6.2,
-        "edge": 2.3,
-        "edge_signed": -2.3,
-        "home_proj": 3.3,
-        "away_proj": 2.8
-      },
-      "why": "Model projects Pittsburgh Penguins 3 - Philadelphia Flyers 3. Model spread: -0.8 vs market +1.5 = 2.3pt edge. Philadelphia Flyers is 28-33 on the season.",
-      "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play at +1.5 or better. Kill if line moves past +2.0. Size: 0.5 units."
-    },
-    {
-      "id": 8,
-      "sport": "NHL",
-      "game": "Tampa Bay Lightning @ Toronto Maple Leafs",
-      "time": "2026-03-08T00:00:00Z",
-      "confidence": 65,
-      "best_bet": {
-        "pick": "Toronto Maple Leafs -1.5",
-        "odds": "+128",
-        "book": "FanDuel"
-      },
-      "best_prop": {
-        "pick": "No prop identified",
-        "odds": "N/A",
-        "book": "N/A"
-      },
-      "best_parlay": {
-        "legs": [
-          "Toronto Maple Leafs -1.5"
-        ],
-        "odds": "+200",
-        "correlation": "Single-game parlay based on model direction"
-      },
-      "model_vs_market": {
-        "model_spread": 1.0,
-        "market_spread": -1.5,
-        "model_total": 6.5,
-        "edge": 2.5,
-        "edge_signed": 2.5,
-        "home_proj": 3.0,
-        "away_proj": 3.4
-      },
-      "why": "Model projects Toronto Maple Leafs 3 - Tampa Bay Lightning 3. Model spread: +1.0 vs market -1.5 = 2.5pt edge. Toronto Maple Leafs is 27-36 on the season.",
-      "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play at -1.5 or better. Kill if line moves past -1.0. Size: 0.5 units."
-    },
-    {
-      "id": 9,
-      "sport": "NHL",
-      "game": "Philadelphia Flyers @ Pittsburgh Penguins",
-      "time": "2026-03-07T22:30:00Z",
+      "game": "Ottawa Senators @ Seattle Kraken",
+      "time": "2026-03-08T03:00:00Z",
       "confidence": 60,
       "best_bet": {
         "pick": "Over 5.5",
-        "odds": "-124",
+        "odds": "-130",
         "book": "FanDuel"
       },
       "best_prop": {
@@ -322,51 +67,14 @@
         "correlation": "Single-game parlay based on model direction"
       },
       "model_vs_market": {
-        "model_spread": -0.8,
+        "model_spread": 0.1,
         "market_spread": 5.5,
         "model_total": 6.2,
         "market_total": 5.5,
         "edge": 0.7,
         "edge_signed": 0.7,
-        "home_proj": 3.3,
-        "away_proj": 2.8
-      },
-      "why": "Model projects 3 + 3 = 6.2 total. Market total: 5.5. Edge: 0.7 points toward Over.",
-      "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play Over 5.5 up to 6.5. Standard sizing."
-    },
-    {
-      "id": 10,
-      "sport": "NHL",
-      "game": "Vancouver Canucks @ Winnipeg Jets",
-      "time": "2026-03-08T00:00:00Z",
-      "confidence": 60,
-      "best_bet": {
-        "pick": "Over 5.5",
-        "odds": "-128",
-        "book": "FanDuel"
-      },
-      "best_prop": {
-        "pick": "No prop identified",
-        "odds": "N/A",
-        "book": "N/A"
-      },
-      "best_parlay": {
-        "legs": [
-          "Over 5.5"
-        ],
-        "odds": "+200",
-        "correlation": "Single-game parlay based on model direction"
-      },
-      "model_vs_market": {
-        "model_spread": -1.1,
-        "market_spread": 5.5,
-        "model_total": 6.2,
-        "market_total": 5.5,
-        "edge": 0.7,
-        "edge_signed": 0.7,
-        "home_proj": 3.4,
-        "away_proj": 2.8
+        "home_proj": 3.1,
+        "away_proj": 3.1
       },
       "why": "Model projects 3 + 3 = 6.2 total. Market total: 5.5. Edge: 0.7 points toward Over.",
       "risk": "Standard variance. No major flags from the model.",
