@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-07T20:02:20.639695",
+  "updated": "2026-03-07T20:36:24.943620",
   "date": "March 07, 2026",
   "daily_code": "EDGE0307",
   "discord_invite": "",
@@ -8,13 +8,13 @@
   "games": [
     {
       "id": 1,
-      "sport": "NBA",
-      "game": "Golden State Warriors @ Oklahoma City Thunder",
-      "time": "5:30 PM PT",
-      "confidence": 93,
+      "sport": "NHL",
+      "game": "Carolina Hurricanes @ Calgary Flames",
+      "time": "7:00 PM PT",
+      "confidence": 60,
       "best_bet": {
-        "pick": "Over 214.5",
-        "odds": "-111",
+        "pick": "Under 7.5",
+        "odds": "+154",
         "book": "FanDuel"
       },
       "best_prop": {
@@ -24,24 +24,24 @@
       },
       "best_parlay": {
         "legs": [
-          "Over 214.5"
+          "Under 7.5"
         ],
         "odds": "+200",
         "correlation": "Single-game parlay based on model direction"
       },
       "model_vs_market": {
-        "model_spread": -12.8,
-        "market_spread": 214.5,
-        "model_total": 226.4,
-        "market_total": 214.5,
-        "edge": 11.9,
-        "edge_signed": 11.9,
-        "home_proj": 117.2,
-        "away_proj": 109.2
+        "model_spread": 1.1,
+        "market_spread": 7.5,
+        "model_total": 6.0,
+        "market_total": 7.5,
+        "edge": 1.5,
+        "edge_signed": -1.5,
+        "home_proj": 2.7,
+        "away_proj": 3.2
       },
-      "why": "Model projects 117 + 109 = 226.4 total. Market total: 214.5. Edge: 11.9 points toward Over. Oklahoma City Thunder offense rating (118.1) is elite.",
-      "risk": "Oklahoma City Thunder may be due for regression (49-15).",
-      "execution": "Play Over 214.5 up to 215.5. Standard sizing."
+      "why": "Model projects 3 + 3 = 6.0 total. Market total: 7.5. Edge: 1.5 points toward Under. Calgary Flames defense is stout (def rating 3.0). Carolina Hurricanes offense has been struggling (off rating 3.6).",
+      "risk": "Standard variance. No major flags from the model.",
+      "execution": "Play Under 7.5 up to 6.5. Standard sizing."
     },
     {
       "id": 2,
@@ -51,7 +51,7 @@
       "confidence": 60,
       "best_bet": {
         "pick": "Under 7.5",
-        "odds": "+142",
+        "odds": "-122",
         "book": "FanDuel"
       },
       "best_prop": {
