@@ -1,0 +1,43 @@
+{
+  "updated": "2026-03-09",
+  "allTime": {
+    "wins": 47,
+    "losses": 31,
+    "pushes": 2,
+    "roi": 12.4,
+    "units": "+18.6",
+    "winPct": 60.3,
+    "streak": "W2",
+    "streakCount": 2
+  },
+  "bySport": {
+    "NBA": { "wins": 22, "losses": 14, "roi": 14.1, "units": "+9.2" },
+    "NCAAB": { "wins": 18, "losses": 12, "roi": 11.8, "units": "+6.8" },
+    "NHL": { "wins": 7, "losses": 5, "roi": 8.3, "units": "+2.6" }
+  },
+  "byConfidence": {
+    "high": { "label": "80-100%", "wins": 19, "losses": 8, "winPct": 70.4 },
+    "mid": { "label": "65-79%", "wins": 22, "losses": 17, "winPct": 56.4 },
+    "low": { "label": "50-64%", "wins": 6, "losses": 6, "winPct": 50.0 }
+  },
+  "history": [
+    { "date": "2026-03-08", "sport": "NBA", "game": "BOS @ MIA", "pick": "BOS -5.5", "odds": "-108", "result": "W", "units": "+0.93", "clv": "+0.5", "wasEdgePick": true, "confidence": 82 },
+    { "date": "2026-03-08", "sport": "NBA", "game": "DEN @ OKC", "pick": "Under 224.5", "odds": "-110", "result": "W", "units": "+0.91", "clv": "+1.1", "wasEdgePick": true, "confidence": 78 },
+    { "date": "2026-03-08", "sport": "NHL", "game": "VGK @ TBL", "pick": "VGK ML", "odds": "+115", "result": "L", "units": "-1.0", "clv": "-0.3", "wasEdgePick": false, "confidence": 62 },
+    { "date": "2026-03-07", "sport": "NBA", "game": "LAL @ PHX", "pick": "PHX -3.5", "odds": "-112", "result": "W", "units": "+0.89", "clv": "+0.8", "wasEdgePick": true, "confidence": 88 },
+    { "date": "2026-03-07", "sport": "NCAAB", "game": "Duke @ UNC", "pick": "Duke -4", "odds": "-110", "result": "W", "units": "+0.91", "clv": "+1.2", "wasEdgePick": true, "confidence": 77 },
+    { "date": "2026-03-07", "sport": "NCAAB", "game": "Kansas @ Baylor", "pick": "Over 142.5", "odds": "-108", "result": "L", "units": "-1.0", "clv": "+0.2", "wasEdgePick": false, "confidence": 65 },
+    { "date": "2026-03-06", "sport": "NBA", "game": "GSW @ LAC", "pick": "GSW +2.5", "odds": "-110", "result": "W", "units": "+0.91", "clv": "+0.9", "wasEdgePick": true, "confidence": 81 },
+    { "date": "2026-03-06", "sport": "NHL", "game": "COL @ EDM", "pick": "COL ML", "odds": "+125", "result": "W", "units": "+1.25", "clv": "+0.4", "wasEdgePick": true, "confidence": 69 },
+    { "date": "2026-03-05", "sport": "NBA", "game": "MIL @ CLE", "pick": "CLE -6.5", "odds": "-110", "result": "L", "units": "-1.0", "clv": "-0.5", "wasEdgePick": true, "confidence": 74 },
+    { "date": "2026-03-05", "sport": "NCAAB", "game": "Arizona @ UCLA", "pick": "Arizona -3", "odds": "-112", "result": "W", "units": "+0.89", "clv": "+0.7", "wasEdgePick": true, "confidence": 83 },
+    { "date": "2026-03-04", "sport": "NBA", "game": "MIN @ SAC", "pick": "MIN -4", "odds": "-110", "result": "W", "units": "+0.91", "clv": "+1.0", "wasEdgePick": true, "confidence": 79 },
+    { "date": "2026-03-04", "sport": "NBA", "game": "IND @ ATL", "pick": "Over 228.5", "odds": "-108", "result": "W", "units": "+0.93", "clv": "+0.6", "wasEdgePick": false, "confidence": 71 },
+    { "date": "2026-03-03", "sport": "NCAAB", "game": "Houston @ Memphis", "pick": "Houston -7", "odds": "-110", "result": "L", "units": "-1.0", "clv": "+0.3", "wasEdgePick": true, "confidence": 76 },
+    { "date": "2026-03-03", "sport": "NHL", "game": "FLA @ NYR", "pick": "Under 5.5", "odds": "-120", "result": "W", "units": "+0.83", "clv": "+0.5", "wasEdgePick": true, "confidence": 72 },
+    { "date": "2026-03-02", "sport": "NBA", "game": "PHI @ CLE", "pick": "CLE -12.5", "odds": "-108", "result": "W", "units": "+0.93", "clv": "+1.3", "wasEdgePick": true, "confidence": 85 },
+    { "date": "2026-03-01", "sport": "NBA", "game": "OKC @ MEM", "pick": "OKC -9.5", "odds": "-110", "result": "W", "units": "+0.91", "clv": "+0.8", "wasEdgePick": true, "confidence": 80 },
+    { "date": "2026-02-28", "sport": "NCAAB", "game": "Gonzaga @ Saint Mary's", "pick": "Gonzaga -8.5", "odds": "-112", "result": "L", "units": "-1.0", "clv": "-0.2", "wasEdgePick": true, "confidence": 73 },
+    { "date": "2026-02-28", "sport": "NBA", "game": "BKN @ MIA", "pick": "MIA -11.5", "odds": "-110", "result": "W", "units": "+0.91", "clv": "+1.1", "wasEdgePick": false, "confidence": 68 }
+  ]
+}

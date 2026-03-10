@@ -1,7 +1,7 @@
 {
-  "updated": "2026-03-09T10:00:25.355225",
-  "date": "March 09, 2026",
-  "daily_code": "EDGE0309",
+  "updated": "2026-03-10T10:00:16.773542",
+  "date": "March 10, 2026",
+  "daily_code": "EDGE0310",
   "discord_invite": "",
   "paypal_link": "https://paypal.me/Wheelz27",
   "price": "$29/month",
@@ -9,12 +9,12 @@
     {
       "id": 1,
       "sport": "NBA",
-      "game": "Golden State Warriors @ Utah Jazz",
-      "time": "5:00 PM PT",
+      "game": "Memphis Grizzlies @ Philadelphia 76ers",
+      "time": "3:00 PM PT",
       "confidence": 93,
       "best_bet": {
-        "pick": "Over 224.5",
-        "odds": "-108",
+        "pick": "Memphis Grizzlies -3.0",
+        "odds": "-114",
         "book": "FanDuel"
       },
       "best_prop": {
@@ -24,34 +24,33 @@
       },
       "best_parlay": {
         "legs": [
-          "Over 224.5"
+          "Memphis Grizzlies -3.0"
         ],
         "odds": "+200",
         "correlation": "Single-game parlay based on model direction"
       },
       "model_vs_market": {
-        "model_spread": 5.2,
-        "market_spread": 224.5,
-        "model_total": 233.8,
-        "market_total": 224.5,
-        "edge": 9.3,
-        "edge_signed": 9.3,
-        "home_proj": 116.3,
-        "away_proj": 117.4
+        "model_spread": -5.2,
+        "market_spread": 3.0,
+        "model_total": 230.7,
+        "edge": 8.2,
+        "edge_signed": -8.2,
+        "home_proj": 117.4,
+        "away_proj": 113.2
       },
-      "why": "Model projects 116 + 117 = 233.8 total. Market total: 224.5. Edge: 9.3 points toward Over. Utah Jazz offense rating (114.4) is elite.",
+      "why": "Model projects Philadelphia 76ers 117 - Memphis Grizzlies 113. Model spread: -5.2 vs market +3.0 = 8.2pt edge. Memphis Grizzlies is 23-40 on the season.",
       "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play Over 224.5 up to 225.5. Standard sizing."
+      "execution": "Play at +3.0 or better. Kill if line moves past +4.0. Size: 1.5 units."
     },
     {
       "id": 2,
       "sport": "NBA",
-      "game": "Philadelphia 76ers @ Cleveland Cavaliers",
-      "time": "3:00 PM PT",
-      "confidence": 83,
+      "game": "Dallas Mavericks @ Atlanta Hawks",
+      "time": "3:30 PM PT",
+      "confidence": 93,
       "best_bet": {
-        "pick": "Cleveland Cavaliers -13.0",
-        "odds": "-106",
+        "pick": "Under 240.5",
+        "odds": "-112",
         "book": "FanDuel"
       },
       "best_prop": {
@@ -61,32 +60,217 @@
       },
       "best_parlay": {
         "legs": [
-          "Cleveland Cavaliers -13.0"
+          "Under 240.5"
         ],
         "odds": "+200",
         "correlation": "Single-game parlay based on model direction"
       },
       "model_vs_market": {
-        "model_spread": -7.6,
-        "market_spread": -13.0,
-        "model_total": 230.7,
-        "edge": 5.4,
-        "edge_signed": 5.4,
-        "home_proj": 118.0,
-        "away_proj": 112.6
+        "model_spread": -8.1,
+        "market_spread": 240.5,
+        "model_total": 231.5,
+        "market_total": 240.5,
+        "edge": 9.0,
+        "edge_signed": -9.0,
+        "home_proj": 118.6,
+        "away_proj": 112.9
       },
-      "why": "Model projects Cleveland Cavaliers 118 - Philadelphia 76ers 113. Model spread: -7.6 vs market -13.0 = 5.4pt edge. Cleveland Cavaliers weighted net rating (+6.5) significantly outperforms Philadelphia 76ers (+2.1). Cleveland Cavaliers is 39-25 on the season.",
+      "why": "Model projects 119 + 113 = 231.5 total. Market total: 240.5. Edge: 9.0 points toward Under.",
       "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play at -13.0 or better. Kill if line moves past -12.0. Size: 1.5 units."
+      "execution": "Play Under 240.5 up to 239.5. Standard sizing."
     },
     {
       "id": 3,
       "sport": "NBA",
-      "game": "Memphis Grizzlies @ Brooklyn Nets",
-      "time": "3:30 PM PT",
-      "confidence": 78,
+      "game": "Phoenix Suns @ Milwaukee Bucks",
+      "time": "4:00 PM PT",
+      "confidence": 87,
       "best_bet": {
-        "pick": "Over 222.5",
+        "pick": "Over 217.5",
+        "odds": "-110",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Over 217.5"
+        ],
+        "odds": "+200",
+        "correlation": "Single-game parlay based on model direction"
+      },
+      "model_vs_market": {
+        "model_spread": 2.4,
+        "market_spread": 217.5,
+        "model_total": 223.8,
+        "market_total": 217.5,
+        "edge": 6.3,
+        "edge_signed": 6.3,
+        "home_proj": 112.1,
+        "away_proj": 111.7
+      },
+      "why": "Model projects 112 + 112 = 223.8 total. Market total: 217.5. Edge: 6.3 points toward Over. Milwaukee Bucks offense rating (113.6) is elite.",
+      "risk": "Standard variance. No major flags from the model.",
+      "execution": "Play Over 217.5 up to 218.5. Standard sizing."
+    },
+    {
+      "id": 4,
+      "sport": "NBA",
+      "game": "Charlotte Hornets @ Portland Trail Blazers",
+      "time": "6:00 PM PT",
+      "confidence": 87,
+      "best_bet": {
+        "pick": "Portland Trail Blazers -3.0",
+        "odds": "-112",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Portland Trail Blazers -3.0"
+        ],
+        "odds": "+200",
+        "correlation": "Single-game parlay based on model direction"
+      },
+      "model_vs_market": {
+        "model_spread": 3.0,
+        "market_spread": -3.0,
+        "model_total": 230.0,
+        "edge": 6.0,
+        "edge_signed": 6.0,
+        "home_proj": 115.0,
+        "away_proj": 115.0
+      },
+      "why": "Model projects Portland Trail Blazers 115 - Charlotte Hornets 115. Model spread: +3.0 vs market -3.0 = 6.0pt edge. Portland Trail Blazers is 31-34 on the season.",
+      "risk": "Standard variance. No major flags from the model.",
+      "execution": "Play at -3.0 or better. Kill if line moves past -2.0. Size: 1.5 units."
+    },
+    {
+      "id": 5,
+      "sport": "NBA",
+      "game": "Indiana Pacers @ Sacramento Kings",
+      "time": "6:00 PM PT",
+      "confidence": 87,
+      "best_bet": {
+        "pick": "Under 236.5",
+        "odds": "-114",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Under 236.5"
+        ],
+        "odds": "+200",
+        "correlation": "Single-game parlay based on model direction"
+      },
+      "model_vs_market": {
+        "model_spread": -1.5,
+        "market_spread": 236.5,
+        "model_total": 230.5,
+        "market_total": 236.5,
+        "edge": 6.0,
+        "edge_signed": -6.0,
+        "home_proj": 116.4,
+        "away_proj": 114.1
+      },
+      "why": "Model projects 116 + 114 = 230.5 total. Market total: 236.5. Edge: 6.0 points toward Under.",
+      "risk": "Standard variance. No major flags from the model.",
+      "execution": "Play Under 236.5 up to 235.5. Standard sizing."
+    },
+    {
+      "id": 6,
+      "sport": "NBA",
+      "game": "Detroit Pistons @ Brooklyn Nets",
+      "time": "3:30 PM PT",
+      "confidence": 83,
+      "best_bet": {
+        "pick": "Over 218.5",
+        "odds": "-110",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Over 218.5"
+        ],
+        "odds": "+200",
+        "correlation": "Single-game parlay based on model direction"
+      },
+      "model_vs_market": {
+        "model_spread": 12.2,
+        "market_spread": 218.5,
+        "model_total": 223.6,
+        "market_total": 218.5,
+        "edge": 5.1,
+        "edge_signed": 5.1,
+        "home_proj": 109.6,
+        "away_proj": 114.0
+      },
+      "why": "Model projects 110 + 114 = 223.6 total. Market total: 218.5. Edge: 5.1 points toward Over. Brooklyn Nets offense rating (111.0) is elite.",
+      "risk": "Detroit Pistons may be due for regression (45-18).",
+      "execution": "Play Over 218.5 up to 219.5. Standard sizing."
+    },
+    {
+      "id": 7,
+      "sport": "NBA",
+      "game": "Toronto Raptors @ Houston Rockets",
+      "time": "4:00 PM PT",
+      "confidence": 83,
+      "best_bet": {
+        "pick": "Over 217.5",
+        "odds": "-110",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Over 217.5"
+        ],
+        "odds": "+200",
+        "correlation": "Single-game parlay based on model direction"
+      },
+      "model_vs_market": {
+        "model_spread": -5.9,
+        "market_spread": 217.5,
+        "model_total": 222.7,
+        "market_total": 217.5,
+        "edge": 5.2,
+        "edge_signed": 5.2,
+        "home_proj": 113.6,
+        "away_proj": 109.1
+      },
+      "why": "Model projects 114 + 109 = 222.7 total. Market total: 217.5. Edge: 5.2 points toward Over. Houston Rockets offense rating (118.0) is elite.",
+      "risk": "Standard variance. No major flags from the model.",
+      "execution": "Play Over 217.5 up to 218.5. Standard sizing."
+    },
+    {
+      "id": 8,
+      "sport": "NBA",
+      "game": "Boston Celtics @ San Antonio Spurs",
+      "time": "4:00 PM PT",
+      "confidence": 83,
+      "best_bet": {
+        "pick": "Boston Celtics -3.0",
         "odds": "-108",
         "book": "FanDuel"
       },
@@ -97,29 +281,64 @@
       },
       "best_parlay": {
         "legs": [
-          "Over 222.5"
+          "Boston Celtics -3.0"
         ],
         "odds": "+200",
         "correlation": "Single-game parlay based on model direction"
       },
       "model_vs_market": {
-        "model_spread": 3.2,
-        "market_spread": 222.5,
-        "model_total": 226.9,
-        "market_total": 222.5,
-        "edge": 4.4,
-        "edge_signed": 4.4,
-        "home_proj": 113.5,
-        "away_proj": 113.5
+        "model_spread": -2.3,
+        "market_spread": 3.0,
+        "model_total": 225.3,
+        "edge": 5.3,
+        "edge_signed": -5.3,
+        "home_proj": 114.0,
+        "away_proj": 111.3
       },
-      "why": "Model projects 114 + 114 = 226.9 total. Market total: 222.5. Edge: 4.4 points toward Over. Brooklyn Nets offense rating (110.8) is elite. Memphis Grizzlies defense is exploitable (def rating 114.6).",
-      "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play Over 222.5 up to 223.5. Standard sizing."
+      "why": "Model projects San Antonio Spurs 114 - Boston Celtics 111. Model spread: -2.3 vs market +3.0 = 5.3pt edge. Boston Celtics weighted net rating (+10.6) significantly outperforms San Antonio Spurs (+9.7). Boston Celtics is 43-21 on the season.",
+      "risk": "San Antonio Spurs may be due for regression (47-17). Boston Celtics may be due for regression (43-21).",
+      "execution": "Play at +3.0 or better. Kill if line moves past +4.0. Size: 1.5 units."
     },
     {
-      "id": 4,
+      "id": 9,
       "sport": "NBA",
-      "game": "Philadelphia 76ers @ Cleveland Cavaliers",
+      "game": "Indiana Pacers @ Sacramento Kings",
+      "time": "6:00 PM PT",
+      "confidence": 78,
+      "best_bet": {
+        "pick": "Indiana Pacers -3.0",
+        "odds": "-112",
+        "book": "FanDuel"
+      },
+      "best_prop": {
+        "pick": "No prop identified",
+        "odds": "N/A",
+        "book": "N/A"
+      },
+      "best_parlay": {
+        "legs": [
+          "Indiana Pacers -3.0"
+        ],
+        "odds": "+200",
+        "correlation": "Single-game parlay based on model direction"
+      },
+      "model_vs_market": {
+        "model_spread": -1.5,
+        "market_spread": 3.0,
+        "model_total": 230.5,
+        "edge": 4.5,
+        "edge_signed": -4.5,
+        "home_proj": 116.4,
+        "away_proj": 114.1
+      },
+      "why": "Model projects Sacramento Kings 116 - Indiana Pacers 114. Model spread: -1.5 vs market +3.0 = 4.5pt edge. Indiana Pacers weighted net rating (-6.1) significantly outperforms Sacramento Kings (-7.8). Indiana Pacers is 15-49 on the season.",
+      "risk": "Standard variance. No major flags from the model.",
+      "execution": "Play at +3.0 or better. Kill if line moves past +4.0. Size: 1 unit."
+    },
+    {
+      "id": 10,
+      "sport": "NBA",
+      "game": "Memphis Grizzlies @ Philadelphia 76ers",
       "time": "3:00 PM PT",
       "confidence": 72,
       "best_bet": {
@@ -140,91 +359,18 @@
         "correlation": "Single-game parlay based on model direction"
       },
       "model_vs_market": {
-        "model_spread": -7.6,
+        "model_spread": -5.2,
         "market_spread": 227.5,
         "model_total": 230.7,
         "market_total": 227.5,
         "edge": 3.2,
         "edge_signed": 3.2,
-        "home_proj": 118.0,
-        "away_proj": 112.6
+        "home_proj": 117.4,
+        "away_proj": 113.2
       },
-      "why": "Model projects 118 + 113 = 230.7 total. Market total: 227.5. Edge: 3.2 points toward Over. Cleveland Cavaliers offense rating (118.4) is elite. Philadelphia 76ers defense is exploitable (def rating 113.4).",
+      "why": "Model projects 117 + 113 = 230.7 total. Market total: 227.5. Edge: 3.2 points toward Over. Philadelphia 76ers offense rating (115.4) is elite. Memphis Grizzlies defense is exploitable (def rating 114.7).",
       "risk": "Standard variance. No major flags from the model.",
       "execution": "Play Over 227.5 up to 228.5. Standard sizing."
-    },
-    {
-      "id": 5,
-      "sport": "NBA",
-      "game": "Denver Nuggets @ Oklahoma City Thunder",
-      "time": "3:30 PM PT",
-      "confidence": 72,
-      "best_bet": {
-        "pick": "Under 232.5",
-        "odds": "-106",
-        "book": "FanDuel"
-      },
-      "best_prop": {
-        "pick": "No prop identified",
-        "odds": "N/A",
-        "book": "N/A"
-      },
-      "best_parlay": {
-        "legs": [
-          "Under 232.5"
-        ],
-        "odds": "+200",
-        "correlation": "Single-game parlay based on model direction"
-      },
-      "model_vs_market": {
-        "model_spread": -10.3,
-        "market_spread": 232.5,
-        "model_total": 229.1,
-        "market_total": 232.5,
-        "edge": 3.4,
-        "edge_signed": -3.4,
-        "home_proj": 117.9,
-        "away_proj": 111.2
-      },
-      "why": "Model projects 118 + 111 = 229.1 total. Market total: 232.5. Edge: 3.4 points toward Under. Oklahoma City Thunder defense is stout (def rating 104.8).",
-      "risk": "Oklahoma City Thunder may be due for regression (50-15).",
-      "execution": "Play Under 232.5 up to 231.5. Standard sizing."
-    },
-    {
-      "id": 6,
-      "sport": "NHL",
-      "game": "Calgary Flames @ Washington Capitals",
-      "time": "3:00 PM PT",
-      "confidence": 65,
-      "best_bet": {
-        "pick": "Calgary Flames -1.5",
-        "odds": "-154",
-        "book": "FanDuel"
-      },
-      "best_prop": {
-        "pick": "No prop identified",
-        "odds": "N/A",
-        "book": "N/A"
-      },
-      "best_parlay": {
-        "legs": [
-          "Calgary Flames -1.5"
-        ],
-        "odds": "+200",
-        "correlation": "Single-game parlay based on model direction"
-      },
-      "model_vs_market": {
-        "model_spread": -0.8,
-        "market_spread": 1.5,
-        "model_total": 5.8,
-        "edge": 2.3,
-        "edge_signed": -2.3,
-        "home_proj": 3.2,
-        "away_proj": 2.7
-      },
-      "why": "Model projects Washington Capitals 3 - Calgary Flames 3. Model spread: -0.8 vs market +1.5 = 2.3pt edge. Calgary Flames is 25-37 on the season.",
-      "risk": "Standard variance. No major flags from the model.",
-      "execution": "Play at +1.5 or better. Kill if line moves past +2.0. Size: 0.5 units."
     }
   ]
 }

@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EdgeIntel — AI-Powered Sports Betting Intelligence</title>
+<meta name="description" content="EdgeIntel uses AI power ratings and edge detection to find value the market misses. Free daily previews, full slate for $29/month.">
+<meta property="og:title" content="EdgeIntel — AI Sports Betting Intelligence">
+<meta property="og:description" content="AI-powered edge detection. Proven record. Free previews daily.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #080c18;
+  --bg2: #0d1220;
+  --bg3: #111827;
+  --border: #1e2840;
+  --border2: #2d3f60;
+  --text: #e0e6f0;
+  --text2: #94a3b8;
+  --text3: #475569;
+  --blue: #00d4ff;
+  --purple: #7b61ff;
+  --green: #10b981;
+  --red: #ef4444;
+  --gold: #f59e0b;
+  --grad: linear-gradient(135deg, #7b61ff, #00d4ff);
+  --grad-gold: linear-gradient(135deg, #f59e0b, #e67e00);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+.hidden { display: none !important; }
+
+/* NAV */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(8,12,24,0.95); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  height: 60px; display: flex; align-items: center; padding: 0 20px;
+}
+.nav-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; align-items: center; gap: 24px; }
+.nav-logo { font-size: 22px; font-weight: 900; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; flex-shrink: 0; }
+.nav-links { display: flex; gap: 20px; margin-left: auto; }
+.nav-links a { font-size: 13px; color: var(--text2); font-weight: 600; transition: color 0.2s; cursor: pointer; }
+.nav-links a:hover { color: var(--blue); }
+.nav-record { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 800; }
+.record-wins { color: var(--green); }
+.record-losses { color: var(--red); }
+.nav-cta { background: var(--grad); color: #fff; padding: 8px 18px; border-radius: 8px; font-size: 13px; font-weight: 800; cursor: pointer; border: none; white-space: nowrap; }
+
+/* PAGES */
+.page { display: none; padding-top: 60px; min-height: 100vh; }
+.page.active { display: block; }
+
+/* CONTAINER */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* RECORD BANNER */
+.record-banner {
+  background: linear-gradient(135deg, rgba(16,185,129,0.08), rgba(16,185,129,0.03));
+  border: 1px solid rgba(16,185,129,0.2); border-radius: 12px;
+  padding: 12px 20px; display: flex; align-items: center; gap: 16px;
+  flex-wrap: wrap; justify-content: center; margin: 16px 0;
+  font-size: 14px;
+}
+.rb-item { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.rb-label { font-size: 10px; font-weight: 700; color: var(--text3); text-transform: uppercase; letter-spacing: 1px; }
+.rb-value { font-size: 18px; font-weight: 900; color: #fff; }
+.rb-divider { width: 1px; height: 36px; background: var(--border); }
+.rb-streak { background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3); color: var(--green); font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 20px; }
+
+/* HERO */
+.hero { padding: 60px 0 40px; position: relative; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 50px 50px; opacity: 0.2; }
+.hero-glow { position: absolute; width: 600px; height: 400px; background: radial-gradient(circle, rgba(123,97,255,0.12) 0%, transparent 70%); top: 0; left: 20%; pointer-events: none; }
+.hero .container { position: relative; z-index: 1; }
+.hero-tag { display: inline-block; background: rgba(123,97,255,0.1); border: 1px solid rgba(123,97,255,0.3); color: var(--purple); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 20px; }
+.hero-title { font-size: clamp(36px, 6vw, 72px); font-weight: 900; letter-spacing: -2px; line-height: 1.05; color: #fff; margin-bottom: 16px; max-width: 800px; }
+.grad-text { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero-sub { font-size: 18px; color: var(--text2); max-width: 580px; line-height: 1.7; margin-bottom: 32px; }
+.hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; border: none; transition: all 0.2s; font-family: inherit; }
+.btn-primary { background: var(--grad); color: #fff; box-shadow: 0 4px 20px rgba(123,97,255,0.3); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(123,97,255,0.4); }
+.btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border2); }
+.btn-outline:hover { border-color: var(--blue); color: var(--blue); }
+.btn-gold { background: var(--grad-gold); color: #000; font-weight: 800; }
+.btn-sm { padding: 8px 16px; font-size: 13px; border-radius: 8px; }
+.btn-green { background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3); color: var(--green); }
+.btn-green:hover { background: rgba(16,185,129,0.2); }
+
+/* SECTION HEADER */
+.section-hdr { text-align: center; margin-bottom: 40px; }
+.section-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--purple); background: rgba(123,97,255,0.1); border: 1px solid rgba(123,97,255,0.25); padding: 4px 12px; border-radius: 20px; margin-bottom: 12px; }
+.section-title { font-size: clamp(24px, 4vw, 38px); font-weight: 800; color: #fff; letter-spacing: -1px; margin-bottom: 10px; }
+.section-sub { font-size: 15px; color: var(--text2); max-width: 520px; margin: 0 auto; }
+
+/* TODAY'S BOARD */
+.board-section { padding: 40px 0; }
+.board-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
+.board-title { font-size: 20px; font-weight: 800; color: #fff; }
+.board-date { font-size: 13px; color: var(--text3); }
+.sport-tabs { display: flex; gap: 8px; }
+.sport-tab { padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; cursor: pointer; border: 1px solid var(--border); color: var(--text3); transition: all 0.2s; background: transparent; font-family: inherit; }
+.sport-tab.active { background: rgba(123,97,255,0.1); border-color: var(--purple); color: var(--purple); }
+
+/* GAME CARDS */
+.games-grid { display: flex; flex-direction: column; gap: 10px; }
+
+.game-card {
+  background: var(--bg3); border: 1px solid var(--border); border-radius: 14px;
+  padding: 16px 18px; cursor: pointer; transition: all 0.2s; position: relative;
+  overflow: hidden;
+}
+.game-card:hover { border-color: var(--border2); transform: translateY(-1px); }
+.game-card.edge-pick { border-color: rgba(245,158,11,0.4); background: linear-gradient(135deg, rgba(245,158,11,0.04), var(--bg3)); }
+.game-card.edge-pick:hover { border-color: var(--gold); }
+
+.edge-badge {
+  position: absolute; top: 0; right: 0;
+  background: var(--grad-gold); color: #000; font-size: 10px; font-weight: 800;
+  letter-spacing: 1px; text-transform: uppercase; padding: 4px 12px;
+  border-radius: 0 14px 0 10px;
+}
+
+.gc-row1 { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.sport-pill { background: rgba(123,97,255,0.1); border: 1px solid rgba(123,97,255,0.25); color: var(--purple); font-size: 10px; font-weight: 800; padding: 3px 8px; border-radius: 6px; flex-shrink: 0; }
+.sport-pill.nba { background: rgba(0,212,255,0.1); border-color: rgba(0,212,255,0.25); color: var(--blue); }
+.sport-pill.nhl { background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.25); color: var(--green); }
+.sport-pill.ncaab { background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.25); color: var(--gold); }
+.game-matchup { font-size: 15px; font-weight: 800; color: #fff; flex: 1; }
+.game-time { font-size: 12px; color: var(--text3); white-space: nowrap; }
+
+.gc-row2 { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.gc-pick { font-size: 14px; font-weight: 700; color: var(--text); }
+.gc-pick span { color: var(--blue); }
+.gc-odds { font-size: 12px; color: var(--text3); }
+.gc-edge { font-size: 12px; font-weight: 700; color: var(--gold); }
+.gc-conf { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.conf-bar-track { width: 80px; height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; }
+.conf-bar-fill { height: 100%; border-radius: 3px; background: var(--grad); }
+.conf-pct { font-size: 12px; font-weight: 800; color: #fff; min-width: 30px; text-align: right; }
+
+/* LOCK overlay for non-edge picks on paid content */
+.gc-locked { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text3); }
+.gc-locked .lock-icon { font-size: 16px; }
+
+/* GAME DETAIL MODAL */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 2000; background: rgba(4,8,20,0.92);
+  backdrop-filter: blur(8px); display: flex; align-items: flex-start; justify-content: center;
+  padding: 20px; overflow-y: auto;
+}
+.modal-overlay.hidden { display: none; }
+.modal {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 18px;
+  width: 100%; max-width: 780px; overflow: hidden; margin-top: 20px;
+  animation: modalIn 0.25s ease;
+}
+@keyframes modalIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.modal-top { padding: 20px 24px 0; display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.modal-close { background: var(--bg3); border: 1px solid var(--border); color: var(--text2); width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 18px; flex-shrink: 0; transition: all 0.2s; }
+.modal-close:hover { color: #fff; border-color: var(--border2); }
+.modal-body { padding: 16px 24px 24px; }
+.modal-matchup { font-size: 22px; font-weight: 900; color: #fff; letter-spacing: -0.5px; }
+.modal-meta { display: flex; gap: 10px; align-items: center; margin-top: 6px; flex-wrap: wrap; }
+
+/* TEAMS COMPARISON */
+.teams-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0; }
+.team-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
+.team-name { font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 12px; }
+.rating-row { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px; }
+.rating-label { color: var(--text3); }
+.rating-value { font-weight: 700; color: #fff; }
+.composite-rating { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+.comp-label { font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+.comp-bar { height: 6px; border-radius: 3px; margin-bottom: 4px; }
+.comp-val { font-size: 18px; font-weight: 900; }
+
+/* MODEL VS MARKET */
+.mvmarket { background: var(--bg3); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 14px; }
+.mvmarket-title { font-size: 12px; font-weight: 700; color: var(--text3); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+.mvmarket-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+.mvmarket-item { text-align: center; }
+.mvmarket-label { font-size: 11px; color: var(--text3); margin-bottom: 4px; }
+.mvmarket-val { font-size: 20px; font-weight: 900; color: #fff; }
+.mvmarket-edge { color: var(--gold); font-size: 13px; font-weight: 800; margin-top: 2px; }
+
+/* WHY SECTION */
+.why-section { background: rgba(123,97,255,0.05); border: 1px solid rgba(123,97,255,0.2); border-radius: 12px; padding: 16px; margin-bottom: 14px; }
+.why-title { font-size: 12px; font-weight: 800; color: var(--purple); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+.why-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.why-list li { font-size: 13px; color: var(--text2); display: flex; gap: 8px; }
+.why-list li::before { content: "→"; color: var(--purple); flex-shrink: 0; }
+.risk-section { background: rgba(239,68,68,0.04); border: 1px solid rgba(239,68,68,0.15); border-radius: 12px; padding: 12px 16px; margin-bottom: 14px; }
+.risk-title { font-size: 11px; font-weight: 800; color: var(--red); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+.risk-text { font-size: 13px; color: var(--text2); line-height: 1.5; }
+
+/* BEST BET BOX */
+.best-bet-box { background: linear-gradient(135deg, rgba(245,158,11,0.08), rgba(245,158,11,0.03)); border: 1px solid rgba(245,158,11,0.3); border-radius: 12px; padding: 16px; margin-bottom: 14px; }
+.bb-label { font-size: 10px; font-weight: 800; color: var(--gold); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+.bb-pick { font-size: 22px; font-weight: 900; color: #fff; margin-bottom: 4px; }
+.bb-odds { font-size: 14px; color: var(--text2); margin-bottom: 10px; }
+.bb-execution { font-size: 13px; color: var(--text2); line-height: 1.5; }
+
+/* SCOTTY AI */
+.scotty-section { background: var(--bg3); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.scotty-header { padding: 14px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
+.scotty-avatar { width: 32px; height: 32px; background: var(--grad); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+.scotty-name { font-size: 14px; font-weight: 800; color: #fff; }
+.scotty-sub { font-size: 11px; color: var(--text3); }
+.scotty-lock { margin-left: auto; background: rgba(123,97,255,0.1); border: 1px solid rgba(123,97,255,0.25); color: var(--purple); font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px; }
+
+.scotty-body { padding: 14px 16px; }
+.scotty-quick-btns { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.scotty-q-btn { background: var(--bg2); border: 1px solid var(--border); color: var(--text2); font-size: 12px; padding: 6px 12px; border-radius: 20px; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+.scotty-q-btn:hover { border-color: var(--purple); color: var(--purple); }
+
+.scotty-input-row { display: flex; gap: 8px; }
+.scotty-input { flex: 1; background: var(--bg2); border: 1px solid var(--border); color: var(--text); padding: 10px 14px; border-radius: 8px; font-size: 13px; font-family: inherit; }
+.scotty-input:focus { outline: none; border-color: var(--purple); }
+.scotty-send { background: var(--grad); color: #fff; border: none; padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; font-family: inherit; white-space: nowrap; }
+
+.scotty-msgs { margin-top: 12px; display: flex; flex-direction: column; gap: 10px; max-height: 280px; overflow-y: auto; }
+.scotty-msg { padding: 10px 12px; border-radius: 10px; font-size: 13px; line-height: 1.6; }
+.scotty-msg.user { background: rgba(123,97,255,0.1); border: 1px solid rgba(123,97,255,0.2); color: var(--text); align-self: flex-end; max-width: 80%; }
+.scotty-msg.assistant { background: var(--bg2); border: 1px solid var(--border); color: var(--text2); }
+.scotty-msg.assistant strong { color: var(--blue); }
+.scotty-msg .action-tag { display: inline-block; margin-top: 6px; padding: 3px 10px; border-radius: 6px; font-size: 11px; font-weight: 800; }
+.action-bet { background: rgba(16,185,129,0.15); color: var(--green); }
+.action-pass { background: rgba(239,68,68,0.15); color: var(--red); }
+.action-wait { background: rgba(245,158,11,0.15); color: var(--gold); }
+.scotty-locked-msg { text-align: center; padding: 20px; color: var(--text3); font-size: 14px; }
+.scotty-locked-msg strong { color: #fff; display: block; margin-bottom: 8px; font-size: 16px; }
+
+/* RESULTS PAGE */
+.results-section { padding: 40px 0; }
+.results-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 32px; }
+.stat-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 12px; padding: 16px; text-align: center; }
+.stat-label { font-size: 10px; font-weight: 700; color: var(--text3); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+.stat-value { font-size: 28px; font-weight: 900; color: #fff; line-height: 1; }
+.stat-sub { font-size: 11px; color: var(--text3); margin-top: 4px; }
+
+.by-sport { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 32px; }
+.sport-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+.sport-card h3 { font-size: 14px; font-weight: 800; margin-bottom: 12px; }
+.sport-stat-row { display: flex; justify-content: space-between; font-size: 13px; padding: 5px 0; border-bottom: 1px solid var(--border); }
+.sport-stat-row:last-child { border-bottom: none; }
+
+/* CALENDAR */
+.cal-section { margin-bottom: 32px; }
+.cal-title { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 16px; }
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+.cal-day { aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; }
+.cal-day.win { background: rgba(16,185,129,0.2); color: var(--green); }
+.cal-day.loss { background: rgba(239,68,68,0.2); color: var(--red); }
+.cal-day.push { background: rgba(245,158,11,0.1); color: var(--gold); }
+.cal-day.empty { background: var(--bg3); color: var(--text3); font-size: 9px; }
+
+/* HISTORY TABLE */
+.history-table { width: 100%; border-collapse: collapse; }
+.history-table th { text-align: left; font-size: 10px; font-weight: 700; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+.history-table td { font-size: 12px; color: var(--text2); padding: 10px; border-bottom: 1px solid rgba(30,40,64,0.5); }
+.history-table tr:hover td { background: rgba(255,255,255,0.015); }
+.result-w { color: var(--green); font-weight: 800; }
+.result-l { color: var(--red); font-weight: 800; }
+.edge-star { color: var(--gold); }
+
+/* ACCESS CODE */
+.paywall-banner { background: var(--bg3); border: 1px solid var(--border); border-radius: 14px; padding: 28px; text-align: center; margin: 20px 0; }
+.paywall-banner h3 { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+.paywall-banner p { color: var(--text2); font-size: 14px; margin-bottom: 20px; }
+.code-input-row { display: flex; gap: 10px; max-width: 380px; margin: 0 auto; }
+.code-input { flex: 1; background: var(--bg2); border: 1px solid var(--border); color: var(--text); padding: 11px 14px; border-radius: 8px; font-size: 14px; font-family: inherit; }
+.code-input:focus { outline: none; border-color: var(--purple); }
+.code-submit { background: var(--grad); color: #fff; border: none; padding: 11px 20px; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: inherit; }
+.paywall-sub { margin-top: 16px; font-size: 13px; color: var(--text3); }
+.paywall-sub a { color: var(--blue); }
+.code-error { color: var(--red); font-size: 12px; margin-top: 8px; display: none; }
+
+/* HOW IT WORKS */
+.hiw-section { padding: 60px 0; }
+.hiw-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.hiw-step { background: var(--bg3); border: 1px solid var(--border); border-radius: 14px; padding: 24px; }
+.hiw-num { width: 36px; height: 36px; background: var(--grad); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 900; color: #fff; margin-bottom: 14px; }
+.hiw-step h3 { font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+.hiw-step p { font-size: 13px; color: var(--text2); line-height: 1.6; }
+
+/* PRICING */
+.pricing-section { padding: 60px 0; background: var(--bg2); }
+.pricing-grid { display: grid; grid-template-columns: 1fr 1.1fr 1fr; gap: 16px; max-width: 800px; margin: 0 auto; }
+.price-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 14px; padding: 24px; }
+.price-card.featured { border-color: var(--purple); background: rgba(123,97,255,0.04); transform: scale(1.03); }
+.price-name { font-size: 14px; font-weight: 700; color: var(--text2); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+.price-amount { font-size: 36px; font-weight: 900; color: #fff; margin-bottom: 16px; letter-spacing: -1px; }
+.price-amount span { font-size: 14px; font-weight: 400; color: var(--text3); }
+.price-features { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; font-size: 13px; color: var(--text2); }
+.price-features li::before { content: "✓ "; color: var(--green); }
+.price-cta { display: block; text-align: center; padding: 11px; border-radius: 8px; font-size: 14px; font-weight: 700; border: 1px solid var(--border2); color: var(--text2); transition: all 0.2s; cursor: pointer; }
+.price-cta:hover { border-color: var(--purple); color: var(--purple); }
+.price-cta.featured-cta { background: var(--grad); border: none; color: #fff; }
+
+/* TESTIMONIALS */
+.testi-section { padding: 60px 0; }
+.testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.testi-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+.testi-stars { color: var(--gold); margin-bottom: 10px; font-size: 14px; }
+.testi-text { font-size: 13px; color: var(--text2); line-height: 1.6; margin-bottom: 14px; font-style: italic; }
+.testi-author { font-size: 12px; font-weight: 700; color: #fff; }
+.testi-handle { font-size: 11px; color: var(--text3); }
+
+/* EMAIL CAPTURE */
+.email-capture { background: linear-gradient(135deg, rgba(123,97,255,0.06), rgba(0,212,255,0.04)); border: 1px solid rgba(123,97,255,0.2); border-radius: 16px; padding: 36px; text-align: center; margin: 40px 0; }
+.email-capture h2 { font-size: 24px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+.email-capture p { color: var(--text2); font-size: 14px; margin-bottom: 20px; }
+.email-row { display: flex; gap: 10px; max-width: 420px; margin: 0 auto; }
+.email-row input { flex: 1; background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 12px 14px; border-radius: 8px; font-size: 14px; font-family: inherit; }
+.email-row input:focus { outline: none; border-color: var(--purple); }
+.email-row button { background: var(--grad); color: #fff; border: none; padding: 12px 20px; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: inherit; white-space: nowrap; }
+.email-success { display: none; color: var(--green); font-size: 14px; margin-top: 12px; font-weight: 600; }
+
+/* FOOTER */
+.footer { background: var(--bg); border-top: 1px solid var(--border); padding: 40px 0 24px; margin-top: 60px; }
+.footer-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap; }
+.footer-brand .nav-logo { display: block; margin-bottom: 8px; font-size: 20px; }
+.footer-brand p { font-size: 12px; color: var(--text3); max-width: 240px; line-height: 1.5; }
+.footer-links h4 { font-size: 12px; font-weight: 700; color: var(--text3); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+.footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.footer-links ul li { font-size: 13px; color: var(--text3); cursor: pointer; transition: color 0.2s; }
+.footer-links ul li:hover { color: var(--blue); }
+.footer-bottom { border-top: 1px solid var(--border); margin-top: 24px; padding-top: 16px; font-size: 11px; color: var(--text3); text-align: center; }
+
+/* SPINNER */
+.scotty-loading { display: flex; gap: 4px; padding: 10px; }
+.scotty-loading span { width: 8px; height: 8px; background: var(--purple); border-radius: 50%; animation: bounce 1.2s infinite ease-in-out; }
+.scotty-loading span:nth-child(2) { animation-delay: 0.2s; }
+.scotty-loading span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes bounce { 0%,80%,100% { transform: scale(0.7); opacity: 0.4; } 40% { transform: scale(1); opacity: 1; } }
+
+@media(max-width:768px) {
+  .nav-links { display: none; }
+  .teams-grid { grid-template-columns: 1fr; }
+  .results-stats { grid-template-columns: 1fr 1fr; }
+  .by-sport { grid-template-columns: 1fr; }
+  .hiw-steps { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .price-card.featured { transform: none; }
+  .testi-grid { grid-template-columns: 1fr; }
+  .mvmarket-row { grid-template-columns: 1fr; gap: 12px; }
+  .code-input-row { flex-direction: column; }
+  .email-row { flex-direction: column; }
+  .footer-inner { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="showPage('home')">Edge<span style="-webkit-text-fill-color:#fff;font-weight:300">Intel</span></div>
+    <div class="nav-links">
+      <a onclick="showPage('home')">Today's Board</a>
+      <a onclick="showPage('results')">Results</a>
+      <a onclick="showPage('how-it-works')">How It Works</a>
+      <a onclick="showPage('nba-picks')">NBA</a>
+      <a onclick="showPage('ncaab-picks')">NCAAB</a>
+      <a onclick="showPage('nhl-picks')">NHL</a>
+    </div>
+    <div class="nav-record hidden" id="navRecord">
+      <span class="record-wins" id="navWins">--</span>
+      <span style="color:var(--text3)">-</span>
+      <span class="record-losses" id="navLosses">--</span>
+      <span style="font-size:11px;color:var(--text3);margin-left:4px" id="navRoi"></span>
+    </div>
+    <button class="nav-cta" onclick="showPaywall()">Get Full Slate — $29/mo</button>
+  </div>
+</nav>
+
+<!-- ===== HOME PAGE ===== -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="container">
+      <div class="hero-tag">AI-Powered Edge Detection</div>
+      <h1 class="hero-title">Find the Edge<br>the <span class="grad-text">Books Miss</span></h1>
+      <p class="hero-sub">Time-weighted power ratings, live odds comparison, and Scotty AI analysis — delivering the 2-3 highest-edge plays every single day.</p>
+      <div class="hero-ctas">
+        <button class="btn btn-primary" onclick="document.getElementById('todaysBoard').scrollIntoView({behavior:'smooth'})">Today's Board ↓</button>
+        <button class="btn btn-outline" onclick="showPage('results')">See the Record</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE RECORD BANNER -->
+  <div class="container">
+    <div class="record-banner" id="recordBanner">
+      <div class="rb-item"><div class="rb-label">Season Record</div><div class="rb-value" id="rb-record">--</div></div>
+      <div class="rb-divider"></div>
+      <div class="rb-item"><div class="rb-label">Win Rate</div><div class="rb-value" id="rb-wpct">--</div></div>
+      <div class="rb-divider"></div>
+      <div class="rb-item"><div class="rb-label">ROI</div><div class="rb-value" id="rb-roi">--</div></div>
+      <div class="rb-divider"></div>
+      <div class="rb-item"><div class="rb-label">Units</div><div class="rb-value" id="rb-units">--</div></div>
+      <div class="rb-divider"></div>
+      <div class="rb-item"><div class="rb-label">Streak</div><div class="rb-streak" id="rb-streak">--</div></div>
+    </div>
+  </div>
+
+  <!-- TODAY'S BOARD -->
+  <section class="board-section container" id="todaysBoard">
+    <div class="board-header">
+      <div>
+        <div class="board-title">Today's Game Board</div>
+        <div class="board-date" id="boardDate">Loading...</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+        <div class="sport-tabs" id="sportTabs">
+          <button class="sport-tab active" data-sport="ALL" onclick="filterSport('ALL',this)">All</button>
+          <button class="sport-tab" data-sport="NBA" onclick="filterSport('NBA',this)">NBA</button>
+          <button class="sport-tab" data-sport="NCAAB" onclick="filterSport('NCAAB',this)">NCAAB</button>
+          <button class="sport-tab" data-sport="NHL" onclick="filterSport('NHL',this)">NHL</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- FREE: Edge picks visible, rest teased -->
+    <div id="freeBoard">
+      <div style="margin-bottom:12px;padding:10px 14px;background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.2);border-radius:10px;font-size:13px;color:var(--text2);">
+        ⭐ <strong style="color:var(--gold)">EDGE PICKS</strong> are shown free — these are the 2-3 plays the model has highest conviction on and the only ones that count toward our official record.
+      </div>
+      <div class="games-grid" id="gamesGrid">
+        <div style="text-align:center;padding:40px;color:var(--text3);">Loading today's slate...</div>
+      </div>
+    </div>
+
+    <!-- PAID BOARD (shown after access code) -->
+    <div id="paidBoard" class="hidden">
+      <div class="games-grid" id="paidGamesGrid"></div>
+    </div>
+
+    <!-- PAYWALL -->
+    <div id="paywallSection">
+      <div class="paywall-banner">
+        <h3>🔐 Full Slate — <span class="grad-text">$29/month</span></h3>
+        <p>Get complete analysis on every game: full reasoning, execution rules, props, parlays, and Scotty AI chat on every matchup.</p>
+        <div class="code-input-row">
+          <input class="code-input" id="codeInput" type="text" placeholder="Enter daily access code" onkeydown="if(event.key==='Enter')submitCode()">
+          <button class="code-submit" onclick="submitCode()">Unlock</button>
+        </div>
+        <div class="code-error" id="codeError">Invalid code. Subscribe at paypal.me/Wheelz27</div>
+        <div class="paywall-sub">No code? <a href="https://paypal.me/Wheelz27" target="_blank">Subscribe for $29/month →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- YESTERDAY'S RESULTS PREVIEW -->
+  <section style="padding:0 0 40px" id="yesterdaySection">
+    <div class="container">
+      <div class="section-hdr">
+        <div class="section-tag">Free Preview</div>
+        <h2 class="section-title">Yesterday's Edge Picks</h2>
+        <p class="section-sub">Public proof. Every result. No cherry picking.</p>
+      </div>
+      <div id="yesterdayResults" class="games-grid"></div>
+      <div style="text-align:center;margin-top:20px">
+        <button class="btn btn-outline" onclick="showPage('results')">Full History →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMAIL CAPTURE -->
+  <div class="container">
+    <div class="email-capture">
+      <h2>Get 1 Free Edge Pick Every Morning</h2>
+      <p>One pick. Real analysis. Delivered before the lines move. No credit card needed.</p>
+      <div class="email-row">
+        <input type="email" id="emailInput" placeholder="your@email.com">
+        <button onclick="submitEmail()">Send Me Picks</button>
+      </div>
+      <div class="email-success" id="emailSuccess">✓ You're in! First pick coming tomorrow morning.</div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS TEASER -->
+  <section class="hiw-section">
+    <div class="container">
+      <div class="section-hdr">
+        <div class="section-tag">The Model</div>
+        <h2 class="section-title">How EdgeIntel Works</h2>
+        <p class="section-sub">AI-powered edge detection in 3 steps</p>
+      </div>
+      <div class="hiw-steps">
+        <div class="hiw-step">
+          <div class="hiw-num">1</div>
+          <h3>Time-Weighted Power Ratings</h3>
+          <p>Every team gets a composite rating calculated from season, L15, L5, and L1 game windows — weighted so recent form matters more than old data.</p>
+        </div>
+        <div class="hiw-step">
+          <div class="hiw-num">2</div>
+          <h3>Market Edge Detection</h3>
+          <p>The model projects a spread and total for each game. When the market line differs from the projection by a significant margin, that's an edge.</p>
+        </div>
+        <div class="hiw-step">
+          <div class="hiw-num">3</div>
+          <h3>Edge Picks (Top 2-3 Daily)</h3>
+          <p>Only the games with the highest edge percentage AND confidence score get the Edge Pick designation. These are the only bets that count toward the official record.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testi-section">
+    <div class="container">
+      <div class="section-hdr">
+        <div class="section-tag">Subscribers</div>
+        <h2 class="section-title">What They're Saying</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"Finally a service that actually posts the picks publicly before the games. The record is real. Already up 12 units this month."</p>
+          <div class="testi-author">@bettor_mk</div>
+          <div class="testi-handle">Twitter subscriber</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"Scotty AI is wild. Asked it about sizing on a specific line and it gave me a breakdown I couldn't get anywhere else. Worth it just for that."</p>
+          <div class="testi-author">@sportsbets_r</div>
+          <div class="testi-handle">Discord member</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"The model caught the OKC trend early. Has been printing on Unders this week. 60% win rate across the full season speaks for itself."</p>
+          <div class="testi-author">@degen_data</div>
+          <div class="testi-handle">Discord member</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <div class="section-hdr">
+        <div class="section-tag">Pricing</div>
+        <h2 class="section-title">Simple. One Price.</h2>
+        <p class="section-sub">No tiers, no upsells. One subscription covers everything.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-name">Free</div>
+          <div class="price-amount">$0</div>
+          <ul class="price-features">
+            <li>Edge Picks (2-3 daily)</li>
+            <li>Live season record</li>
+            <li>Results history</li>
+            <li>How It Works</li>
+          </ul>
+          <div class="price-cta" onclick="document.getElementById('todaysBoard').scrollIntoView({behavior:'smooth'})">Start Free</div>
+        </div>
+        <div class="price-card featured">
+          <div class="price-name">Full Access</div>
+          <div class="price-amount">$29<span>/month</span></div>
+          <ul class="price-features">
+            <li>Everything in Free</li>
+            <li>Full daily slate + reasoning</li>
+            <li>Scotty AI on every game</li>
+            <li>Props + correlated parlays</li>
+            <li>Execution rules per bet</li>
+            <li>Discord community access</li>
+            <li>Daily email picks</li>
+          </ul>
+          <a class="price-cta featured-cta" href="https://paypal.me/Wheelz27" target="_blank">Subscribe Now</a>
+        </div>
+        <div class="price-card">
+          <div class="price-name">Discord</div>
+          <div class="price-amount">Included</div>
+          <ul class="price-features">
+            <li>Morning picks channel</li>
+            <li>Results recap nightly</li>
+            <li>/record command</li>
+            <li>/roi by sport</li>
+            <li>Scotty in Discord</li>
+          </ul>
+          <div class="price-cta" onclick="showPaywall()">Get Access Code</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===== RESULTS PAGE ===== -->
+<div class="page" id="page-results">
+  <section class="results-section container">
+    <div class="section-hdr" style="text-align:left;margin-bottom:24px">
+      <div class="section-tag" style="display:inline-block">Public Record</div>
+      <h1 class="section-title" style="text-align:left">Season Results</h1>
+      <p class="section-sub" style="text-align:left">Edge Picks only. Every result posted publicly before games end.</p>
+    </div>
+
+    <div class="results-stats" id="resultsStats"></div>
+
+    <div class="cal-section">
+      <div class="cal-title">Results Calendar</div>
+      <div class="cal-grid" id="resultsCalendar"></div>
+    </div>
+
+    <div class="by-sport" id="bySport"></div>
+
+    <div style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;overflow:hidden">
+      <div style="padding:14px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between">
+        <div style="font-size:15px;font-weight:800;color:#fff">Full Pick History</div>
+        <div style="font-size:12px;color:var(--text3)">⭐ = Edge Pick</div>
+      </div>
+      <div style="overflow-x:auto">
+        <table class="history-table" id="historyTable">
+          <thead>
+            <tr>
+              <th>Date</th><th>Sport</th><th>Game</th><th>Pick</th><th>Odds</th><th>Result</th><th>Units</th><th>Conf</th>
+            </tr>
+          </thead>
+          <tbody id="historyBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== HOW IT WORKS PAGE ===== -->
+<div class="page" id="page-how-it-works">
+  <div class="container" style="padding-top:80px;padding-bottom:60px;max-width:760px">
+    <div class="section-tag" style="display:inline-block;margin-bottom:16px">The Model</div>
+    <h1 style="font-size:clamp(28px,5vw,48px);font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:16px">How EdgeIntel Works</h1>
+    <p style="font-size:16px;color:var(--text2);line-height:1.7;margin-bottom:40px">
+      EdgeIntel is a sports analytics engine that identifies betting edges — situations where the model's projected outcome differs meaningfully from what the market is pricing. Here's exactly how it works.
+    </p>
+
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:24px">
+        <div style="font-size:13px;font-weight:800;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">Step 1 — Time-Weighted Power Ratings</div>
+        <p style="font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px">Every team gets a power rating calculated from four time windows:</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px">
+            <div style="font-size:11px;color:var(--text3);margin-bottom:4px">SEASON RATING</div>
+            <div style="font-size:14px;font-weight:700;color:#fff">15% weight</div>
+            <div style="font-size:12px;color:var(--text3)">Full season baseline</div>
+          </div>
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px">
+            <div style="font-size:11px;color:var(--text3);margin-bottom:4px">L15 GAMES</div>
+            <div style="font-size:14px;font-weight:700;color:#fff">25% weight</div>
+            <div style="font-size:12px;color:var(--text3)">Recent momentum</div>
+          </div>
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px">
+            <div style="font-size:11px;color:var(--text3);margin-bottom:4px">L5 GAMES</div>
+            <div style="font-size:14px;font-weight:700;color:#fff">35% weight</div>
+            <div style="font-size:12px;color:var(--text3)">Hot/cold streaks</div>
+          </div>
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px">
+            <div style="font-size:11px;color:var(--text3);margin-bottom:4px">LAST GAME</div>
+            <div style="font-size:14px;font-weight:700;color:#fff">25% weight</div>
+            <div style="font-size:12px;color:var(--text3)">Latest form signal</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:24px">
+        <div style="font-size:13px;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">Step 2 — Projection Engine</div>
+        <p style="font-size:14px;color:var(--text2);line-height:1.7">The composite power ratings feed a projection model that outputs a predicted score for each team. These projections are adjusted for home court advantage, pace, injury impact, and rest differentials. The projected spread and total are then compared against current market lines.</p>
+      </div>
+
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:24px">
+        <div style="font-size:13px;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">Step 3 — Edge Detection + Pick Selection</div>
+        <p style="font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px">When the model's projected spread diverges from the market spread by a threshold amount, that gap is the "edge." The edge percentage is calculated as the gap divided by the typical variance for that sport.</p>
+        <p style="font-size:14px;color:var(--text2);line-height:1.7">Only games where the edge exceeds the threshold <strong style="color:#fff">AND</strong> confidence is high enough get designated as Edge Picks. Every day, exactly 2-3 games make this cut — these are the only plays that count toward the official record.</p>
+      </div>
+
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:24px">
+        <div style="font-size:13px;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">Scotty AI — Your Analyst</div>
+        <p style="font-size:14px;color:var(--text2);line-height:1.7">Scotty is an AI analyst powered by Claude that gets fed the real game data: both teams' power ratings, the model projection, the live odds, injury reports, and the edge calculation. Ask Scotty anything about a game — "What kills this bet?", "Is this still a play at -4.5?", "Sizing?" — and get a direct, concise answer ending with ACTION: bet/pass/wait/hedge.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== NBA / NCAAB / NHL PICK PAGES (SEO) ===== -->
+<div class="page" id="page-nba-picks">
+  <div class="container" style="padding-top:80px;padding-bottom:60px">
+    <div class="section-tag" style="display:inline-block;margin-bottom:12px">NBA</div>
+    <h1 style="font-size:clamp(28px,5vw,44px);font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:8px">NBA Picks Today</h1>
+    <p style="font-size:15px;color:var(--text2);margin-bottom:32px">AI-powered edge detection for tonight's NBA slate. Updated daily at 10 AM ET.</p>
+    <div class="games-grid" id="nbaGamesGrid"></div>
+  </div>
+</div>
+<div class="page" id="page-ncaab-picks">
+  <div class="container" style="padding-top:80px;padding-bottom:60px">
+    <div class="section-tag" style="display:inline-block;margin-bottom:12px">NCAAB</div>
+    <h1 style="font-size:clamp(28px,5vw,44px);font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:8px">College Basketball Picks Today</h1>
+    <p style="font-size:15px;color:var(--text2);margin-bottom:32px">AI model projections for tonight's college basketball games. Time-weighted power ratings, edge analysis.</p>
+    <div class="games-grid" id="ncaabGamesGrid"></div>
+  </div>
+</div>
+<div class="page" id="page-nhl-picks">
+  <div class="container" style="padding-top:80px;padding-bottom:60px">
+    <div class="section-tag" style="display:inline-block;margin-bottom:12px">NHL</div>
+    <h1 style="font-size:clamp(28px,5vw,44px);font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:8px">NHL Picks Today</h1>
+    <p style="font-size:15px;color:var(--text2);margin-bottom:32px">Model-driven NHL picks. Puck line, totals, and moneyline edges identified daily.</p>
+    <div class="games-grid" id="nhlGamesGrid"></div>
+  </div>
+</div>
+
+<!-- ===== GAME DETAIL MODAL ===== -->
+<div class="modal-overlay hidden" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="gameModal">
+    <div class="modal-top">
+      <div>
+        <div class="modal-matchup" id="modalMatchup">Loading...</div>
+        <div class="modal-meta" id="modalMeta"></div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo">Edge<span style="-webkit-text-fill-color:#fff;font-weight:300">Intel</span></div>
+        <p>AI-powered sports betting intelligence. Free edge picks daily, full slate for subscribers.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigate</h4>
+        <ul>
+          <li onclick="showPage('home')">Today's Board</li>
+          <li onclick="showPage('results')">Results</li>
+          <li onclick="showPage('how-it-works')">How It Works</li>
+          <li onclick="showPage('nba-picks')">NBA Picks</li>
+          <li onclick="showPage('ncaab-picks')">NCAAB Picks</li>
+          <li onclick="showPage('nhl-picks')">NHL Picks</li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Subscribe</h4>
+        <ul>
+          <li><a href="https://paypal.me/Wheelz27" target="_blank">$29/month Access</a></li>
+          <li onclick="showPaywall()">Enter Access Code</li>
+          <li>Discord Community</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 EdgeIntel. For entertainment purposes. Must be 21+ in jurisdictions where legal.</div>
+  </div>
+</footer>
+
+<script>
+// ============================================================
+// STATE
+// ============================================================
+let slateData = null;
+let resultsData = null;
+let isAuthenticated = false;
+let currentGameId = null;
+let scottyHistory = {};
+
+const VALID_CODES = ['EDGE0309','EDGE0310','EDGE0311','EDGE0312','EDGE0313','EDGE0314','EDGE0315'];
+const ANTHROPIC_KEY = ''; // Set via env or backend proxy
+
+// ============================================================
+// INIT
+// ============================================================
+window.addEventListener('DOMContentLoaded', async () => {
+  isAuthenticated = !!localStorage.getItem('edgeintel_auth');
+
+  await Promise.all([loadSlate(), loadResults()]);
+
+  const hash = window.location.hash.replace('#', '') || 'home';
+  showPage(hash, false);
+});
+
+async function loadSlate() {
+  try {
+    const r = await fetch('/data/slate.json?t=' + Date.now());
+    slateData = await r.json();
+  } catch(e) {
+    console.warn('Could not load slate', e);
+    slateData = { games: [], date: 'Loading...', daily_code: '', record: {} };
+  }
+}
+
+async function loadResults() {
+  try {
+    const r = await fetch('/data/results.json?t=' + Date.now());
+    resultsData = await r.json();
+    updateRecordBanner();
+  } catch(e) {
+    console.warn('Could not load results', e);
+    resultsData = { allTime: {}, history: [], bySport: {} };
+  }
+}
+
+// ============================================================
+// NAVIGATION
+// ============================================================
+function showPage(id, updateHash = true) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const page = document.getElementById('page-' + id);
+  if (page) page.classList.add('active');
+  if (updateHash) window.history.pushState(null, '', '#' + id);
+  window.scrollTo(0, 0);
+
+  if (id === 'home') renderHomePage();
+  else if (id === 'results') renderResultsPage();
+  else if (id === 'nba-picks') renderSportPage('NBA', 'nbaGamesGrid');
+  else if (id === 'ncaab-picks') renderSportPage('NCAAB', 'ncaabGamesGrid');
+  else if (id === 'nhl-picks') renderSportPage('NHL', 'nhlGamesGrid');
+}
+
+function showPaywall() {
+  showPage('home');
+  setTimeout(() => {
+    document.getElementById('paywallSection').scrollIntoView({ behavior: 'smooth' });
+  }, 100);
+}
+
+// ============================================================
+// RECORD BANNER
+// ============================================================
+function updateRecordBanner() {
+  if (!resultsData || !resultsData.allTime) return;
+  const r = resultsData.allTime;
+  document.getElementById('rb-record').textContent = `${r.wins}-${r.losses}`;
+  document.getElementById('rb-wpct').textContent = `${r.winPct}%`;
+  document.getElementById('rb-roi').textContent = `+${r.roi}%`;
+  document.getElementById('rb-units').textContent = `${r.units}u`;
+  const streak = document.getElementById('rb-streak');
+  streak.textContent = `${r.streak} ${r.streakCount}`;
+  streak.style.color = r.streak.startsWith('W') ? 'var(--green)' : 'var(--red)';
+  streak.style.borderColor = r.streak.startsWith('W') ? 'rgba(16,185,129,0.3)' : 'rgba(239,68,68,0.3)';
+  streak.style.background = r.streak.startsWith('W') ? 'rgba(16,185,129,0.12)' : 'rgba(239,68,68,0.12)';
+  document.getElementById('navWins').textContent = r.wins;
+  document.getElementById('navLosses').textContent = r.losses;
+  document.getElementById('navRoi').textContent = `+${r.roi}%`;
+  document.getElementById('navRecord').classList.remove('hidden');
+}
+
+// ============================================================
+// HOME PAGE
+// ============================================================
+function renderHomePage() {
+  if (!slateData) return;
+  document.getElementById('boardDate').textContent = slateData.date || new Date().toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
+  renderGamesGrid(slateData.games || [], 'gamesGrid', false);
+  if (isAuthenticated) {
+    document.getElementById('paidBoard').classList.remove('hidden');
+    document.getElementById('paywallSection').classList.add('hidden');
+    renderGamesGrid(slateData.games || [], 'paidGamesGrid', true);
+  }
+  renderYesterday();
+}
+
+function renderGamesGrid(games, targetId, showAll) {
+  const container = document.getElementById(targetId);
+  if (!container) return;
+
+  const filtered = showAll ? games : games.filter(g => g.isEdgePick || g.confidence >= 80);
+
+  if (!filtered.length) {
+    container.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text3);">No picks available yet today. Check back at 10 AM ET.</div>';
+    return;
+  }
+
+  container.innerHTML = filtered.map(g => gameCardHTML(g, showAll)).join('');
+
+  if (!showAll && games.length > filtered.length) {
+    const locked = games.filter(g => !g.isEdgePick && g.confidence < 80);
+    container.innerHTML += lockedGamesHTML(locked);
+  }
+}
+
+function gameCardHTML(g, paid) {
+  const sp = (g.sport || '').toLowerCase();
+  const edge = g.model_vs_market?.edge || 0;
+  const isEdge = g.isEdgePick;
+
+  return `
+  <div class="game-card ${isEdge ? 'edge-pick' : ''}" onclick="openGame(${g.id})">
+    ${isEdge ? '<div class="edge-badge">⭐ EDGE PICK</div>' : ''}
+    <div class="gc-row1">
+      <span class="sport-pill ${sp}">${g.sport}</span>
+      <span class="game-matchup">${g.game || g.matchup || ''}</span>
+      <span class="game-time">${g.time || ''}</span>
+    </div>
+    <div class="gc-row2">
+      <span class="gc-pick">Best Bet: <span>${g.best_bet?.pick || ''}</span></span>
+      <span class="gc-odds">${g.best_bet?.odds || ''} · ${g.best_bet?.book || ''}</span>
+      ${edge ? `<span class="gc-edge">+${Math.abs(edge).toFixed(1)}pt edge</span>` : ''}
+      <div class="gc-conf">
+        <div class="conf-bar-track"><div class="conf-bar-fill" style="width:${g.confidence||50}%"></div></div>
+        <span class="conf-pct">${g.confidence || '--'}%</span>
+      </div>
+    </div>
+    ${paid ? `<div style="margin-top:8px;font-size:12px;color:var(--text3)">${g.why || ''}</div>` : ''}
+  </div>`;
+}
+
+function lockedGamesHTML(games) {
+  if (!games.length) return '';
+  return `
+  <div style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:16px;margin-top:4px">
+    <div style="font-size:12px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">Full Board — ${games.length} More Games (Subscriber Only)</div>
+    ${games.map(g => `
+    <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);opacity:0.5;filter:blur(0.5px)">
+      <span class="sport-pill ${(g.sport||'').toLowerCase()}">${g.sport}</span>
+      <span style="font-size:14px;font-weight:700;color:#fff;flex:1">${g.game || g.matchup || ''}</span>
+      <span style="font-size:12px;color:var(--text3)">🔒 Paid</span>
+    </div>`).join('')}
+    <button class="btn btn-primary btn-sm" style="margin-top:16px;width:100%" onclick="showPaywall()">Unlock Full Slate →</button>
+  </div>`;
+}
+
+function renderYesterday() {
+  if (!resultsData || !resultsData.history) return;
+  const yesterday = resultsData.history.filter(h => h.wasEdgePick).slice(0, 4);
+  const container = document.getElementById('yesterdayResults');
+  if (!container) return;
+
+  container.innerHTML = yesterday.map(h => {
+    const isW = h.result === 'W';
+    return `
+    <div style="background:var(--bg3);border:1px solid ${isW ? 'rgba(16,185,129,0.2)' : 'rgba(239,68,68,0.15)'};border-radius:14px;padding:14px 16px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span class="sport-pill ${(h.sport||'').toLowerCase()}">${h.sport}</span>
+        <span style="font-size:14px;font-weight:700;color:#fff;flex:1">${h.game}</span>
+        <span style="font-size:20px">${isW ? '✅' : '❌'}</span>
+      </div>
+      <div style="display:flex;gap:12px;font-size:12px;color:var(--text2)">
+        <span>Pick: <strong style="color:#fff">${h.pick}</strong></span>
+        <span>${h.odds}</span>
+        <span style="color:${isW ? 'var(--green)' : 'var(--red)'};font-weight:800">${isW ? '+' : ''}${h.units}u</span>
+        <span style="color:var(--text3)">${h.date}</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ============================================================
+// SPORT FILTER
+// ============================================================
+function filterSport(sport, btn) {
+  document.querySelectorAll('.sport-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  if (!slateData) return;
+  const games = sport === 'ALL' ? slateData.games : slateData.games.filter(g => g.sport === sport);
+  renderGamesGrid(games, 'gamesGrid', false);
+  if (isAuthenticated) renderGamesGrid(games, 'paidGamesGrid', true);
+}
+
+// ============================================================
+// SPORT SEO PAGES
+// ============================================================
+function renderSportPage(sport, targetId) {
+  if (!slateData) return;
+  const games = slateData.games.filter(g => g.sport === sport);
+  const container = document.getElementById(targetId);
+  if (!container) return;
+  if (!games.length) {
+    container.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text3);">No ' + sport + ' games today. Check back tomorrow.</div>';
+    return;
+  }
+  container.innerHTML = games.map(g => gameCardHTML(g, isAuthenticated)).join('');
+}
+
+// ============================================================
+// GAME MODAL
+// ============================================================
+function openGame(id) {
+  if (!slateData) return;
+  const g = slateData.games.find(x => x.id === id);
+  if (!g) return;
+  currentGameId = id;
+
+  document.getElementById('modalMatchup').textContent = g.game || g.matchup || '';
+  const sp = (g.sport||'').toLowerCase();
+  document.getElementById('modalMeta').innerHTML = `
+    <span class="sport-pill ${sp}">${g.sport}</span>
+    <span style="font-size:13px;color:var(--text3)">${g.time || ''}</span>
+    ${g.isEdgePick ? '<span class="edge-badge" style="position:static;border-radius:6px">⭐ EDGE PICK</span>' : ''}
+  `;
+
+  const mvmarket = g.model_vs_market || {};
+  const teams = g.teams || {};
+  const homeTeam = teams.home || {};
+  const awayTeam = teams.away || {};
+  const gameParts = (g.game || '').split('@');
+  const awayName = gameParts[0]?.trim() || 'Away';
+  const homeName = gameParts[1]?.trim() || 'Home';
+
+  document.getElementById('modalBody').innerHTML = `
+    <!-- MODEL VS MARKET -->
+    <div class="mvmarket">
+      <div class="mvmarket-title">Model vs Market</div>
+      <div class="mvmarket-row">
+        <div class="mvmarket-item">
+          <div class="mvmarket-label">Model Spread</div>
+          <div class="mvmarket-val">${mvmarket.model_spread >= 0 ? '+' : ''}${mvmarket.model_spread || '--'}</div>
+        </div>
+        <div class="mvmarket-item">
+          <div class="mvmarket-label">Market Spread</div>
+          <div class="mvmarket-val">${mvmarket.market_spread || '--'}</div>
+        </div>
+        <div class="mvmarket-item">
+          <div class="mvmarket-label">Edge</div>
+          <div class="mvmarket-val"><span class="mvmarket-edge">+${Math.abs(mvmarket.edge || 0).toFixed(1)}pt</span></div>
+        </div>
+      </div>
+      <div class="mvmarket-row" style="margin-top:12px">
+        <div class="mvmarket-item">
+          <div class="mvmarket-label">Model Total</div>
+          <div class="mvmarket-val">${mvmarket.model_total || '--'}</div>
+        </div>
+        <div class="mvmarket-item">
+          <div class="mvmarket-label">Market Total</div>
+          <div class="mvmarket-val">${mvmarket.market_total || '--'}</div>
+        </div>
+        <div class="mvmarket-item">
+          <div class="mvmarket-label">Confidence</div>
+          <div class="mvmarket-val">${g.confidence || '--'}%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECTED SCORES -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center">
+        <div style="font-size:11px;color:var(--text3);margin-bottom:6px">${awayName}</div>
+        <div style="font-size:28px;font-weight:900;color:#fff">${mvmarket.away_proj || '--'}</div>
+        <div style="font-size:11px;color:var(--text3)">Model Projection</div>
+      </div>
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center">
+        <div style="font-size:11px;color:var(--text3);margin-bottom:6px">${homeName}</div>
+        <div style="font-size:28px;font-weight:900;color:#fff">${mvmarket.home_proj || '--'}</div>
+        <div style="font-size:11px;color:var(--text3)">Model Projection</div>
+      </div>
+    </div>
+
+    <!-- BEST BET -->
+    <div class="best-bet-box">
+      <div class="bb-label">Best Bet</div>
+      <div class="bb-pick">${g.best_bet?.pick || '--'}</div>
+      <div class="bb-odds">${g.best_bet?.odds || ''} · ${g.best_bet?.book || ''}</div>
+      <div class="bb-execution">${g.execution || ''}</div>
+    </div>
+
+    <!-- WHY WE LIKE IT -->
+    <div class="why-section">
+      <div class="why-title">Why We Like This</div>
+      <ul class="why-list">
+        ${(g.why || '').split('. ').filter(Boolean).map(r => `<li>${r}</li>`).join('')}
+      </ul>
+    </div>
+
+    <!-- RISK FACTORS -->
+    <div class="risk-section">
+      <div class="risk-title">Risk Factors</div>
+      <div class="risk-text">${g.risk || 'Monitor for line movement. Standard variance applies.'}</div>
+    </div>
+
+    <!-- PROPS + PARLAY (paid only) -->
+    ${isAuthenticated && g.best_prop ? `
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:12px">
+        <div style="font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Best Prop</div>
+        <div style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px">${g.best_prop.pick}</div>
+        <div style="font-size:12px;color:var(--text3)">${g.best_prop.odds}</div>
+      </div>
+      ${g.best_parlay ? `
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:12px">
+        <div style="font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Best Parlay</div>
+        <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:4px">${(g.best_parlay.legs||[]).join(' + ')}</div>
+        <div style="font-size:12px;color:var(--gold)">${g.best_parlay.odds} · ${g.best_parlay.correlation||''}</div>
+      </div>` : ''}
+    </div>` : ''}
+
+    <!-- SCOTTY AI -->
+    <div class="scotty-section">
+      <div class="scotty-header">
+        <div class="scotty-avatar">🤖</div>
+        <div>
+          <div class="scotty-name">Scotty AI</div>
+          <div class="scotty-sub">Ask anything about this game</div>
+        </div>
+        ${!isAuthenticated ? '<span class="scotty-lock">🔒 Subscribers Only</span>' : ''}
+      </div>
+      ${isAuthenticated ? `
+      <div class="scotty-body">
+        <div class="scotty-quick-btns">
+          <button class="scotty-q-btn" onclick="askScotty('Break down the edge on this game')">Break down the edge</button>
+          <button class="scotty-q-btn" onclick="askScotty('What kills this bet?')">What kills it?</button>
+          <button class="scotty-q-btn" onclick="askScotty('Sizing recommendation?')">Sizing?</button>
+          <button class="scotty-q-btn" onclick="askScotty('Is this still a play if the line moves 0.5 points?')">Line move?</button>
+          <button class="scotty-q-btn" onclick="askScotty('Hedge strategy?')">Hedge?</button>
+        </div>
+        <div class="scotty-input-row">
+          <input class="scotty-input" id="scottyInput" placeholder="Ask Scotty anything about this game..." onkeydown="if(event.key==='Enter')askScottyFromInput()">
+          <button class="scotty-send" onclick="askScottyFromInput()">Ask →</button>
+        </div>
+        <div class="scotty-msgs" id="scottyMsgs"></div>
+      </div>` : `
+      <div class="scotty-locked-msg">
+        <strong>Scotty AI is available for subscribers</strong>
+        Ask Scotty anything — line movement, sizing, hedging, edge analysis.<br>
+        <button class="btn btn-primary btn-sm" style="margin-top:12px" onclick="closeModal();showPaywall()">Get Full Access →</button>
+      </div>`}
+    </div>
+  `;
+
+  if (scottyHistory[id]) {
+    renderScottyMsgs(id);
+  }
+
+  document.getElementById('modalOverlay').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.add('hidden');
+  document.body.style.overflow = '';
+  currentGameId = null;
+}
+
+// ============================================================
+// SCOTTY AI
+// ============================================================
+function askScottyFromInput() {
+  const input = document.getElementById('scottyInput');
+  if (!input || !input.value.trim()) return;
+  askScotty(input.value.trim());
+  input.value = '';
+}
+
+async function askScotty(question) {
+  if (!currentGameId || !slateData) return;
+  const g = slateData.games.find(x => x.id === currentGameId);
+  if (!g) return;
+
+  if (!scottyHistory[currentGameId]) scottyHistory[currentGameId] = [];
+  scottyHistory[currentGameId].push({ role: 'user', content: question });
+  renderScottyMsgs(currentGameId);
+
+  // Loading state
+  const msgsEl = document.getElementById('scottyMsgs');
+  const loadingEl = document.createElement('div');
+  loadingEl.className = 'scotty-loading';
+  loadingEl.innerHTML = '<span></span><span></span><span></span>';
+  msgsEl.appendChild(loadingEl);
+  msgsEl.scrollTop = msgsEl.scrollHeight;
+
+  const mvmarket = g.model_vs_market || {};
+  const systemPrompt = `You are Scotty, EdgeIntel's AI analyst. You have the following data for ${g.game}:
+
+SPORT: ${g.sport}
+MATCHUP: ${g.game}
+MODEL SPREAD: ${mvmarket.model_spread}
+MARKET SPREAD: ${mvmarket.market_spread}
+EDGE: ${mvmarket.edge} points
+MODEL TOTAL: ${mvmarket.model_total}
+MARKET TOTAL: ${mvmarket.market_total}
+HOME PROJ: ${mvmarket.home_proj}
+AWAY PROJ: ${mvmarket.away_proj}
+CONFIDENCE: ${g.confidence}%
+BEST BET: ${g.best_bet?.pick} at ${g.best_bet?.odds}
+EXECUTION: ${g.execution}
+WHY: ${g.why}
+RISK: ${g.risk}
+
+Respond in maximum 150 words. Be direct and specific. End every response with "ACTION: bet/pass/wait/hedge" on its own line.`;
+
+  try {
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': ANTHROPIC_KEY,
+        'anthropic-version': '2023-06-01'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-6',
+        max_tokens: 300,
+        system: systemPrompt,
+        messages: scottyHistory[currentGameId].slice(-6)
+      })
+    });
+
+    loadingEl.remove();
+
+    if (response.ok) {
+      const data = await response.json();
+      const answer = data.content?.[0]?.text || 'No response from Scotty.';
+      scottyHistory[currentGameId].push({ role: 'assistant', content: answer });
+    } else {
+      scottyHistory[currentGameId].push({ role: 'assistant', content: 'Scotty is temporarily unavailable. Check the game breakdown above for analysis.' });
+    }
+  } catch(e) {
+    loadingEl.remove();
+    scottyHistory[currentGameId].push({ role: 'assistant', content: 'Scotty is offline right now. Analysis is available in the breakdown above.' });
+  }
+
+  renderScottyMsgs(currentGameId);
+}
+
+function renderScottyMsgs(gameId) {
+  const msgsEl = document.getElementById('scottyMsgs');
+  if (!msgsEl) return;
+  const history = scottyHistory[gameId] || [];
+
+  msgsEl.innerHTML = history.map(m => {
+    if (m.role === 'user') {
+      return `<div class="scotty-msg user">${escHtml(m.content)}</div>`;
+    }
+    const lines = m.content.split('\n');
+    const action = lines.find(l => l.startsWith('ACTION:'));
+    const body = lines.filter(l => !l.startsWith('ACTION:')).join('<br>');
+    let actionTag = '';
+    if (action) {
+      const a = action.toLowerCase();
+      const cls = a.includes('bet') ? 'action-bet' : a.includes('pass') ? 'action-pass' : 'action-wait';
+      actionTag = `<div class="action-tag ${cls}">${action}</div>`;
+    }
+    return `<div class="scotty-msg assistant">${body}${actionTag}</div>`;
+  }).join('');
+
+  msgsEl.scrollTop = msgsEl.scrollHeight;
+}
+
+function escHtml(t) {
+  return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ============================================================
+// ACCESS CODE
+// ============================================================
+function submitCode() {
+  const val = document.getElementById('codeInput').value.trim().toUpperCase();
+  const err = document.getElementById('codeError');
+
+  // Check daily code from slate
+  const todayCode = slateData?.daily_code?.toUpperCase() || '';
+  const valid = VALID_CODES.includes(val) || val === todayCode;
+
+  if (valid) {
+    isAuthenticated = true;
+    localStorage.setItem('edgeintel_auth', val);
+    document.getElementById('paywallSection').classList.add('hidden');
+    document.getElementById('paidBoard').classList.remove('hidden');
+    renderGamesGrid(slateData?.games || [], 'paidGamesGrid', true);
+    err.style.display = 'none';
+    window.scrollTo(0, 0);
+  } else {
+    err.style.display = 'block';
+    err.textContent = 'Invalid code. Get access at paypal.me/Wheelz27';
+  }
+}
+
+// ============================================================
+// RESULTS PAGE
+// ============================================================
+function renderResultsPage() {
+  if (!resultsData) return;
+  const r = resultsData.allTime;
+
+  document.getElementById('resultsStats').innerHTML = `
+    <div class="stat-card">
+      <div class="stat-label">Record</div>
+      <div class="stat-value">${r.wins}-${r.losses}</div>
+      <div class="stat-sub">${r.pushes || 0} pushes</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Win Rate</div>
+      <div class="stat-value" style="color:var(--green)">${r.winPct}%</div>
+      <div class="stat-sub">Edge picks only</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">ROI</div>
+      <div class="stat-value" style="color:var(--blue)">+${r.roi}%</div>
+      <div class="stat-sub">$100 flat unit</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Units</div>
+      <div class="stat-value" style="color:var(--gold)">${r.units}u</div>
+      <div class="stat-sub">Net profit</div>
+    </div>
+  `;
+
+  const bs = resultsData.bySport || {};
+  document.getElementById('bySport').innerHTML = Object.entries(bs).map(([sport, s]) => `
+    <div class="sport-card">
+      <h3 style="color:${sport === 'NBA' ? 'var(--blue)' : sport === 'NHL' ? 'var(--green)' : 'var(--gold)'}">${sport}</h3>
+      <div class="sport-stat-row"><span style="color:var(--text3)">Record</span><span style="color:#fff;font-weight:700">${s.wins}-${s.losses}</span></div>
+      <div class="sport-stat-row"><span style="color:var(--text3)">Win %</span><span style="color:var(--green);font-weight:700">${Math.round(s.wins/(s.wins+s.losses)*100)}%</span></div>
+      <div class="sport-stat-row"><span style="color:var(--text3)">ROI</span><span style="color:var(--blue);font-weight:700">+${s.roi}%</span></div>
+      <div class="sport-stat-row"><span style="color:var(--text3)">Units</span><span style="color:var(--gold);font-weight:700">${s.units}u</span></div>
+    </div>
+  `).join('');
+
+  renderCalendar();
+  renderHistoryTable();
+}
+
+function renderCalendar() {
+  const history = (resultsData?.history || []).slice().reverse();
+  const byDate = {};
+  history.filter(h => h.wasEdgePick).forEach(h => {
+    if (!byDate[h.date]) byDate[h.date] = [];
+    byDate[h.date].push(h.result);
+  });
+
+  const calEl = document.getElementById('resultsCalendar');
+  const items = Object.entries(byDate).slice(-28);
+
+  calEl.innerHTML = items.map(([date, results]) => {
+    const wins = results.filter(r => r === 'W').length;
+    const losses = results.filter(r => r === 'L').length;
+    const cls = wins > losses ? 'win' : losses > wins ? 'loss' : 'push';
+    const short = new Date(date + 'T12:00:00').toLocaleDateString('en-US',{month:'numeric',day:'numeric'});
+    return `<div class="cal-day ${cls}" title="${date}: ${wins}W-${losses}L">${short}</div>`;
+  }).join('');
+}
+
+function renderHistoryTable() {
+  const history = resultsData?.history || [];
+  const tbody = document.getElementById('historyBody');
+  tbody.innerHTML = history.map(h => `
+    <tr>
+      <td>${h.date}</td>
+      <td><span class="sport-pill ${(h.sport||'').toLowerCase()}" style="font-size:10px">${h.sport}</span></td>
+      <td style="color:#fff">${h.game}</td>
+      <td style="font-weight:700;color:#fff">${h.pick} ${h.wasEdgePick ? '<span class="edge-star">⭐</span>' : ''}</td>
+      <td style="color:var(--text3)">${h.odds}</td>
+      <td class="${h.result === 'W' ? 'result-w' : 'result-l'}">${h.result}</td>
+      <td style="color:${h.result==='W'?'var(--green)':'var(--red)'};font-weight:700">${h.units}u</td>
+      <td style="color:var(--text3)">${h.confidence}%</td>
+    </tr>
+  `).join('');
+}
+
+// ============================================================
+// EMAIL CAPTURE
+// ============================================================
+function submitEmail() {
+  const email = document.getElementById('emailInput')?.value?.trim();
+  if (!email || !email.includes('@')) return;
+  document.getElementById('emailSuccess').style.display = 'block';
+  document.getElementById('emailInput').value = '';
+  // TODO: POST to Buttondown or backend
+  fetch('/api/subscribe', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ email }) }).catch(() => {});
+}
+
+// ============================================================
+// POPSTATE
+// ============================================================
+window.addEventListener('popstate', () => {
+  const hash = window.location.hash.replace('#', '') || 'home';
+  showPage(hash, false);
+});
+</script>
+</body>
+</html>

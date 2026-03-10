@@ -1,0 +1,90 @@
+name: EdgeIntel Daily Pipeline
+
+on:
+  schedule:
+    # 10:00 AM ET = 15:00 UTC (14:00 UTC during EDT)
+    - cron: '0 14 * * *'
+  workflow_dispatch:  # allow manual trigger from GitHub UI
+
+jobs:
+  daily-pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests pillow python-dotenv
+
+      - name: Configure git
+        run: |
+          git config user.name "EdgeIntel Bot"
+          git config user.email "bot@edgeintel.app"
+
+      - name: Build power ratings
+        run: python pipeline/power_ratings.py
+        continue-on-error: true  # don't fail pipeline if ESPN is down
+
+      - name: Run daily pipeline
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python pipeline/daily_pipeline.py
+
+      - name: Generate pick cards
+        run: python marketing/daily_pick_card.py
+        continue-on-error: true  # don't fail pipeline if Pillow issue
+
+      - name: Commit and push updated data
+        run: |
+          git add public/data/slate.json public/data/results.json public/data/archive/ marketing/cards/ pipeline/power_ratings.json
+          git diff --staged --quiet || git commit -m "chore: daily slate $(date +'%Y-%m-%d')"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # Optional: run at 6 AM ET to update power ratings only (no picks yet)
+  morning-ratings:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: pip install requests
+
+      - name: Update power ratings
+        run: python pipeline/power_ratings.py
+        continue-on-error: true
+
+      - name: Commit ratings update
+        run: |
+          git config user.name "EdgeIntel Bot"
+          git config user.email "bot@edgeintel.app"
+          git add pipeline/power_ratings.json
+          git diff --staged --quiet || git commit -m "chore: update power ratings"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    # Only runs on demand (not scheduled) to avoid double-running
+    if: ${{ github.event_name == 'workflow_dispatch' }}
